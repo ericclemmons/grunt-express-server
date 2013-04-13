@@ -33,15 +33,14 @@ grunt.initConfig({
 
 ### Usage
 
-Assuming you're using [grunt-contrib-livereload][https://github.com/gruntjs/grunt-contrib-livereload],
-I recommend using the followingin your project's Gruntfile:
+#### With [grunt-contrib-livereload](https://github.com/gruntjs/grunt-contrib-livereload)
 
 ```js
 grunt.initConfig({
   watch: {
     server: {
       files:  '<%= dirs.server + files.all %>',
-      tasks:  [ 'jshint', 'express-server', 'livereload' ]
+      tasks:  [ 'express-server', 'livereload' ]
     }
   }
 });
@@ -52,6 +51,23 @@ grunt.registerTask('server', [ 'express-server', 'livereload', 'watch' ])
 This will let you override `grunt server` with a LiveReload-able Express Server.
 Finally, you can make changes to your API and watch the JSON change in your browser!
 
+#### With [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch)
+
+```js
+grunt.initConfig({
+  watch: {
+    server: {
+      files:  [ '**/*.js' ],
+      tasks:  [ 'express-server' ],
+      options: {
+        nospawn: true //Without this option specified express-server won't be reloaded
+      }
+    }
+  }
+});
+
+grunt.registerTask('server', [ 'express-server', 'watch' ])
+```
 
 ## Contributing
 
