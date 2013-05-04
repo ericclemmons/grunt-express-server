@@ -69,6 +69,20 @@ grunt.initConfig({
 grunt.registerTask('server', [ 'express-server', 'watch' ])
 ```
 
+#### express-server-kill
+If followed by express-server a task which terminates itself (karma), the instance of the server remains as a zombie.
+Do make after karma task express-server-kill and the zombie is killed.
+Kill the exists server instance by karma e2e example. 
+```js
+grunt.registerTask('e2e', [
+  'clean:reports',
+  'build',
+  'express-server',
+  'karma:e2e',
+  'express-server-kill'
+]);
+```
+
 ## Contributing
 
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
