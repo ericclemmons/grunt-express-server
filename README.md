@@ -39,7 +39,7 @@ grunt.initConfig({
 grunt.initConfig({
   watch: {
     server: {
-      files:  '<%= dirs.server + files.all %>',
+      files:  [ 'path/to/files/to/watch/**.js' ],
       tasks:  [ 'express-server', 'livereload' ]
     }
   }
