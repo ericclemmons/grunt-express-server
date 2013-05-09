@@ -13,6 +13,18 @@ var server  = null; // Store server between live reloads to close/restart expres
 
 module.exports = function(grunt) {
 
+  grunt.registerTask('express-server-kill', 'Kill express web server', function() {
+
+    if (server) {
+      console.log('Killing existing Express server');
+        server.kill('SIGTERM');
+        server = null;
+    }
+    else {
+      console.log('nothing to kill');
+    }
+  });
+
   grunt.registerTask('express-server', 'Start an express web server', function() {
 
     var done = this.async();
