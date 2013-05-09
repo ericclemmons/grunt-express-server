@@ -13,8 +13,7 @@ var server  = null; // Store server between live reloads to close/restart expres
 
 module.exports = function(grunt) {
 
-  grunt.registerTask('express-server', 'Start an express web server', function() {
-
+  grunt.registerTask('express', 'Start an express web server', function() {
     var done = this.async();
 
     if (server) {
@@ -26,7 +25,7 @@ module.exports = function(grunt) {
 
     server = grunt.util.spawn({
       cmd:      process.argv[0],
-      args:     [ grunt.config.get('server.script') ],
+      args:     [ grunt.config.get(this.name) ],
       fallback: function() {
         // Prevent EADDRINUSE from breaking Grunt
       }

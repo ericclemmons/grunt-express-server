@@ -3,6 +3,7 @@
 > Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde
 
 ## Getting Started
+
 This plugin requires Grunt `~0.4.0`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
@@ -25,9 +26,7 @@ In your project's Gruntfile, simply add a `script` property to your existing `se
 
 ```js
 grunt.initConfig({
-  server: {
-    script: 'path/to/server.js'
-  }
+  express: 'path/to/server.js'
 })
 ```
 
@@ -38,14 +37,14 @@ grunt.initConfig({
 ```js
 grunt.initConfig({
   watch: {
-    server: {
+    express: {
       files:  [ 'path/to/files/to/watch/**.js' ],
-      tasks:  [ 'express-server', 'livereload' ]
+      tasks:  [ 'express', 'livereload' ]
     }
   }
 });
 
-grunt.registerTask('server', [ 'express-server', 'livereload', 'watch' ])
+grunt.registerTask('server', [ 'express', 'livereload', 'watch' ])
 ```
 
 This will let you override `grunt server` with a LiveReload-able Express Server.
@@ -56,17 +55,17 @@ Finally, you can make changes to your API and watch the JSON change in your brow
 ```js
 grunt.initConfig({
   watch: {
-    server: {
+    express: {
       files:  [ '**/*.js' ],
-      tasks:  [ 'express-server' ],
+      tasks:  [ 'express' ],
       options: {
-        nospawn: true //Without this option specified express-server won't be reloaded
+        nospawn: true //Without this option specified express won't be reloaded
       }
     }
   }
 });
 
-grunt.registerTask('server', [ 'express-server', 'watch' ])
+grunt.registerTask('server', [ 'express', 'watch' ])
 ```
 
 ## Contributing
@@ -74,6 +73,11 @@ grunt.registerTask('server', [ 'express-server', 'watch' ])
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+
+### v0.2.0
+
+- Change `express-server` task to `express`
+- Config is set via `express: '...'` instead of `server: { script: '...' } `
 
 ### v0.1.0
 
