@@ -1,6 +1,7 @@
-# grunt-express-server
+# grunt-express-server [![Build Status](https://travis-ci.org/ericclemmons/grunt-express-server.png?branch=master)](https://travis-ci.org/ericclemmons/grunt-express-server)
 
-> Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde
+
+> Easy grunt task for running an Express Server that works great with LiveReload + Watch/Regarde
 
 ## Getting Started
 
