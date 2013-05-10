@@ -10,13 +10,14 @@
 
 var get = require('./lib/get');
 
-module.exports.custom_port = {
+module.exports.stoppable = {
   hello: function(test) {
-    test.expect(2);
+    test.expect(1);
 
-    get('http://localhost:8080/hello.txt', function(res, body) {
-      test.equal(res.statusCode, 200, 'should return 200');
-      test.equal(body, 'Howdy!\n', 'should return static page');
+    get('http://localhost:3000/hello.txt', function(res, body) {
+      test.done();
+    }, function(err) {
+      test.equal('ECONNREFUSED', err.code, 'should return ECONNREFUSED');
       test.done();
     });
   }

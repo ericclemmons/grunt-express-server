@@ -33,8 +33,14 @@ module.exports = function(grunt) {
       defaults: {
         src: 'test/defaults_test.js'
       },
+      custom_args: {
+        src: 'test/custom_args_test.js'
+      },
       custom_port: {
         src: 'test/custom_port_test.js'
+      },
+      stoppable: {
+        src: 'test/stoppable_test.js'
       }
     },
 
@@ -53,7 +59,8 @@ module.exports = function(grunt) {
         options: {
           port: 8080
         }
-      }
+      },
+      stoppable: {}
     }
   });
 
@@ -67,7 +74,13 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'express:defaults', 'nodeunit:defaults', 'express:custom_port', 'nodeunit:custom_port']);
+  grunt.registerTask('test', [
+    'clean',
+    'express:defaults', 'nodeunit:defaults',
+    'express:custom_args', 'nodeunit:custom_args',
+    'express:custom_port', 'nodeunit:custom_port',
+    'express:stoppable', 'express:stoppable:stop', 'nodeunit:stoppable'
+  ]);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

@@ -15,6 +15,10 @@ module.exports = function(grunt) {
     start: function(options) {
       if (server) {
         this.stop();
+
+        if (grunt.task.current.flags.stop) {
+          return;
+        }
       };
 
       grunt.log.writeln('Starting '.cyan + (options.background ? 'background' : 'foreground') + ' Express server');

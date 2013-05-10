@@ -1,7 +1,6 @@
 # grunt-express-server [![Build Status](https://travis-ci.org/ericclemmons/grunt-express-server.png?branch=master)](https://travis-ci.org/ericclemmons/grunt-express-server)
 
-
-> Easy grunt task for running an Express Server that works great with LiveReload + Watch/Regarde
+> Simple grunt task for running an Express server that works great with LiveReload + Watch/Regarde
 
 ## Getting Started
 
@@ -19,19 +18,74 @@ One the plugin has been installed, it may be enabled inside your Gruntfile with 
 grunt.loadNpmTasks('grunt-express-server');
 ```
 
-## The "server" task
+## The `express` task
 
 ### Setup
 
-In your project's Gruntfile, simply add a `script` property to your existing `server` object.
+In your project's Gruntfile, you can create one or multiple servers:
 
 ```js
 grunt.initConfig({
-  express: 'path/to/server.js'
-})
+  express: {
+    options: {
+      // Override defaults here
+    },
+    dev: {
+      options: {
+        script: 'path/to/dev/server.js'
+      }
+    },
+    prod: {
+      options: {
+        script: 'path/to/prod/server.js'
+      }
+    }
+    test: {
+      options: {
+        script: 'path/to/test/server.js'
+      }
+    }
+  }
+});
+```
+
+You can override the default `options` either in the root of the `express` config
+or within each individual server task.
+
+### Default `options`
+
+```js
+  express: {
+    options: {
+      // Will turn into: `node path/to/server.js ARG1 ARG2 ... ARGN`
+      args: [ ],
+
+      // Setting to `false` will effectively just run `node path/to/server.js`
+      background: true,
+
+      // Called if spawning the server fails
+      error: function(err, result, code) {},
+
+      // Called when the spawned server throws errors
+      fallback: function() {},
+
+      // Override node env's PORT
+      port: 3000
+    }
+  }
 ```
 
 ### Usage
+
+#### Starting the server
+
+If you have a server defined named `dev`, you can start the server by running `expess:dev`.
+
+
+#### Stopping the server
+
+Similarly, if you start the `dev` server with `express:dev`, you can stop the server
+with `express:dev:stop`.
 
 #### With [grunt-contrib-livereload](https://github.com/gruntjs/grunt-contrib-livereload)
 
@@ -40,12 +94,12 @@ grunt.initConfig({
   watch: {
     express: {
       files:  [ 'path/to/files/to/watch/**.js' ],
-      tasks:  [ 'express', 'livereload' ]
+      tasks:  [ 'express:dev', 'livereload' ]
     }
   }
 });
 
-grunt.registerTask('server', [ 'express', 'livereload', 'watch' ])
+grunt.registerTask('server', [ 'express:dev', 'livereload', 'watch' ])
 ```
 
 This will let you override `grunt server` with a LiveReload-able Express Server.
@@ -58,7 +112,7 @@ grunt.initConfig({
   watch: {
     express: {
       files:  [ '**/*.js' ],
-      tasks:  [ 'express' ],
+      tasks:  [ 'express:dev' ],
       options: {
         nospawn: true //Without this option specified express won't be reloaded
       }
@@ -66,7 +120,7 @@ grunt.initConfig({
   }
 });
 
-grunt.registerTask('server', [ 'express', 'watch' ])
+grunt.registerTask('server', [ 'express:dev', 'watch' ])
 ```
 
 ## Contributing
@@ -74,6 +128,10 @@ grunt.registerTask('server', [ 'express', 'watch' ])
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+
+### v0.3.0
+
+- `express` is now a multitask with customizable options, better error handling and `:stop` task
 
 ### v0.2.0
 

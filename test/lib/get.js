@@ -10,13 +10,20 @@
 
 var http = require('http');
 
-module.exports = function get(url, done) {
-  http.get(url, function(res) {
+module.exports = function get(url, callback, error) {
+  var req = http.get(url, function(res) {
     var body = '';
+
     res.on('data', function(chunk) {
       body += chunk;
     }).on('end', function() {
-      done(res, body);
+      callback(res, body);
     });
   });
+
+  if (error) {
+    req.on('error', error)
+  };
+
+  req.end();
 }

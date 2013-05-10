@@ -10,7 +10,7 @@
 
 var get = require('./lib/get');
 
-module.exports.express = {
+module.exports.defaults = {
   hello: function(test) {
     test.expect(2);
 
