@@ -28,6 +28,7 @@
     "test": "./node_modules/.bin/grunt"
   },
   "devDependencies": {
+    "express": "~3.2.4",
     "grunt": "~0.4.0",
     "grunt-cli": "~0.1.6",
     "grunt-contrib-jshint": "~0.1.1",

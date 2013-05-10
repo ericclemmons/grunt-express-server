@@ -8,41 +8,31 @@
 
 'use strict';
 
-var path    = require('path');
-var server  = null; // Store server between live reloads to close/restart express
+var path = require('path');
 
 module.exports = function(grunt) {
 
-  grunt.registerTask('express', 'Start an express web server', function() {
-    var done = this.async();
+  var server = require('./lib/server')(grunt);
 
-    if (server) {
-      console.log("Killing existing Express server");
+  grunt.registerMultiTask('express', 'Start an express web server', function() {
+    var options = this.options({
+      args:       [ ],
+      background: true,
+      error:      function(err, result, code) { /* Callback has to exist */ },
+      fallback:   function() { /* Prevent EADDRINUSE from breaking Grunt */ },
+      port:       3000
+    });
 
-      server.kill('SIGTERM');
-      server = null;
+    options.script = path.resolve(options.script);
+
+    options.args.unshift(options.script);
+
+    if (!grunt.file.exists(options.script)) {
+      grunt.log.error('Could not find server script: ' + options.script);
+
+      return false;
     }
 
-    server = grunt.util.spawn({
-      cmd:      process.argv[0],
-      args:     [ grunt.config.get(this.name) ],
-      fallback: function() {
-        // Prevent EADDRINUSE from breaking Grunt
-      }
-    }, function(err, result, code) {
-      // Nothing to do, but callback has to exist
-    });
-
-    server.stdout.on('data', function() {
-      if (done) {
-        done();
-      }
-
-      done = null;
-    });
-
-    server.stdout.pipe(process.stdout);
-    server.stderr.pipe(process.stdout);
+    server.start(options);
   });
-
 };
