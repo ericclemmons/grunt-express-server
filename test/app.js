@@ -7,7 +7,6 @@ app.use(express.static(__dirname + '/../test/fixtures'));
 
 // Setup simple echo for each additional argument passed for testing
 args.slice(2).forEach(function(arg) {
-  console.log(arg);
   app.get('/' + arg, function(req, res) {
     res.send('Howdy ' + arg + '!');
   });

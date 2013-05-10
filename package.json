@@ -1,7 +1,7 @@
 {
   "name": "grunt-express-server",
   "description": "Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/ericclemmons/grunt-express-server",
   "author": {
     "name": "Eric Clemmons",

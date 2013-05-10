@@ -18,6 +18,8 @@ module.exports.custom_args = {
       test.equal(res.statusCode, 200, 'should return 200');
       test.equal(body, 'Howdy 1!', 'should return dynamic page');
       test.done();
+    }, function(err) {
+      test.done();
     });
   },
 
@@ -27,6 +29,8 @@ module.exports.custom_args = {
     get('http://localhost:3000/2', function(res, body) {
       test.equal(res.statusCode, 200, 'should return 200');
       test.equal(body, 'Howdy 2!', 'should return dynamic page');
+      test.done();
+    }, function(err) {
       test.done();
     });
   }

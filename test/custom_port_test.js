@@ -18,6 +18,8 @@ module.exports.custom_port = {
       test.equal(res.statusCode, 200, 'should return 200');
       test.equal(body, 'Howdy!\n', 'should return static page');
       test.done();
+    }, function(err) {
+      test.done();
     });
   }
 };

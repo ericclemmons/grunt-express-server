@@ -129,6 +129,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### v0.3.1
+
+- Try to force notification that `express` task has finished as much as possible
+
 ### v0.3.0
 
 - `express` is now a multitask with customizable options, better error handling and `:stop` task
