@@ -47,10 +47,13 @@ module.exports = function(grunt) {
           fallback: options.fallback
         }, options.error);
 
-        server.stdout.on('data', finished);
-
         server.stdout.pipe(process.stdout);
         server.stderr.pipe(process.stderr);
+        if(options.startWaitTime) {
+          setTimeout(function(){
+            finished();
+          }, options.startWaitTime);
+        }
       } else {
         // Server is ran in current process
         server = require(options.script);
