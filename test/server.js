@@ -2,6 +2,7 @@
  * Test Server
  */
 
+console.log("Express");
 var app = require('./app');
 
 module.exports = app.listen(app.get('port'), function() {
