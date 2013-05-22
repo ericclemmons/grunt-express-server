@@ -1,6 +1,7 @@
 /**
  * Test Server
  */
+console.log("EXPRESS");
 
 var app = require('./app');
 

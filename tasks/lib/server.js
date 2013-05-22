@@ -47,7 +47,11 @@ module.exports = function(grunt) {
           fallback: options.fallback
         }, options.error);
 
-        server.stdout.on('data', finished);
+        server.stdout.on('data', function(data){
+          var message = "" + data;
+          var regex = new RegExp(options.startMessage, "gi");
+          if (message.match(regex)) finished();
+        });
 
         server.stdout.pipe(process.stdout);
         server.stderr.pipe(process.stderr);

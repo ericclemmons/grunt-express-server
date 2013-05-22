@@ -20,7 +20,8 @@ module.exports = function(grunt) {
       background: true,
       error:      function(err, result, code) { /* Callback has to exist */ },
       fallback:   function() { /* Prevent EADDRINUSE from breaking Grunt */ },
-      port:       3000
+      port:       3000,
+      startMessage : "Express server listening .*",
     });
 
     options.script = path.resolve(options.script);
