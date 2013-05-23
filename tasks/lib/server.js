@@ -55,6 +55,9 @@ module.exports = function(grunt) {
 
         server.stdout.pipe(process.stdout);
         server.stderr.pipe(process.stderr);
+        if (options.startTimeout) {
+          setTimeout(finished, options.startTimeout);
+        }
       } else {
         // Server is ran in current process
         server = require(options.script);
@@ -71,6 +74,7 @@ module.exports = function(grunt) {
         grunt.log.writeln('Stopping'.red + ' Express server');
 
         server.kill('SIGTERM');
+        process.removeAllListeners();
         server = null;
       };
 

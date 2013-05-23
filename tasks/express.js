@@ -16,12 +16,13 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('express', 'Start an express web server', function() {
     var options = this.options({
-      args:       [ ],
-      background: true,
-      error:      function(err, result, code) { /* Callback has to exist */ },
-      fallback:   function() { /* Prevent EADDRINUSE from breaking Grunt */ },
-      port:       3000,
-      startMessage : "Express server listening .*",
+      args:          [ ],
+      background:    true,
+      error:         function(err, result, code) { /* Callback has to exist */ },
+      fallback:      function() { /* Prevent EADDRINUSE from breaking Grunt */ },
+      port:          3000,
+      startTimeout:  1000,
+      startMessage:  "Express server listening .*",
     });
 
     options.script = path.resolve(options.script);

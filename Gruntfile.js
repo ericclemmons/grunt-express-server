@@ -39,6 +39,9 @@ module.exports = function(grunt) {
       custom_port: {
         src: 'test/custom_port_test.js'
       },
+      without_message: {
+        src: 'test/without_message_test.js'
+      },
       stoppable: {
         src: 'test/stoppable_test.js'
       }
@@ -60,6 +63,12 @@ module.exports = function(grunt) {
           port: 8080
         }
       },
+      without_message: {
+        options: {
+          script: './test/server_wo_message.js',
+          port: 3000
+        }
+      },
       stoppable: {}
     }
   });
@@ -79,7 +88,8 @@ module.exports = function(grunt) {
     'express:defaults', 'nodeunit:defaults',
     'express:custom_args', 'nodeunit:custom_args',
     'express:custom_port', 'nodeunit:custom_port',
-    'express:stoppable', 'express:stoppable:stop', 'nodeunit:stoppable'
+    'express:stoppable', 'express:stoppable:stop', 'nodeunit:stoppable',
+    'express:without_message', 'nodeunit:without_message'
   ]);
 
   // By default, lint and run all tests.
