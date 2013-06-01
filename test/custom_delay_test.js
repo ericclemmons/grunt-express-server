@@ -10,8 +10,8 @@
 
 var get = require('./lib/get');
 
-module.exports.without_message = {
-  hello: function(test) {
+module.exports.custom_delay = {
+  test_runs_after_timeout: function(test) {
     test.expect(2);
 
     get('http://localhost:3000/hello.txt', function(res, body) {

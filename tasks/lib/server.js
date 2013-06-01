@@ -47,17 +47,18 @@ module.exports = function(grunt) {
           fallback: options.fallback
         }, options.error);
 
-        server.stdout.on('data', function(data){
-          var message = "" + data;
-          var regex = new RegExp(options.startMessage, "gi");
-          if (message.match(regex)) finished();
-        });
+        if (options.delay) {
+          setTimeout(finished, options.delay);
+        } else if (options.output) {
+          server.stdout.on('data', function(data){
+            var message = "" + data;
+            var regex = new RegExp(options.output, "gi");
+            if (message.match(regex)) finished();
+          });
+        }
 
         server.stdout.pipe(process.stdout);
         server.stderr.pipe(process.stderr);
-        if (options.startTimeout) {
-          setTimeout(finished, options.startTimeout);
-        }
       } else {
         // Server is ran in current process
         server = require(options.script);
