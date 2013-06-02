@@ -79,6 +79,12 @@ module.exports = function(grunt) {
           output: "timeout"
         }
       },
+      custom_delay_output: {
+        options:  {
+          delay: 1000,
+          output: "Express server listening on port .+"
+        }
+      },
       stoppable: {}
     }
   });

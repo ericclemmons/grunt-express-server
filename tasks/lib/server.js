@@ -49,7 +49,9 @@ module.exports = function(grunt) {
 
         if (options.delay) {
           setTimeout(finished, options.delay);
-        } else if (options.output) {
+        }
+
+        if (options.output) {
           server.stdout.on('data', function(data){
             var message = "" + data;
             var regex = new RegExp(options.output, "gi");
