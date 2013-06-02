@@ -10,11 +10,11 @@
 
 var get = require('./lib/get');
 
-module.exports.custom_port = {
-  test_accessible_on_8080: function(test) {
+module.exports.custom_delay = {
+  test_runs_after_timeout: function(test) {
     test.expect(2);
 
-    get('http://localhost:8080/hello.txt', function(res, body) {
+    get('http://localhost:3000/hello.txt', function(res, body) {
       test.equal(res.statusCode, 200, 'should return 200');
       test.equal(body, 'Howdy!\n', 'should return static page');
       test.done();
