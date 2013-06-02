@@ -85,7 +85,8 @@ or within each individual server task.
 ### Usage
 
 By default, unless `delay` or `output` has been customized,
-**the server is considered "running" once any output is logged to the console**.
+**the server is considered "running" once any output is logged to the console**,
+upon which control is passed back to grunt.
 
 Typically, this is normally:
 
@@ -144,6 +145,11 @@ grunt.registerTask('server', [ 'express:dev', 'watch' ])
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+
+### v0.4.0
+
+- Add `delay` option that, when set, passes control back to grunt after timeout
+- Add `output` regular expression option that, when set, waits for matching message before passing control back to grunt
 
 ### v0.3.1
 
