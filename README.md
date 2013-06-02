@@ -70,17 +70,33 @@ or within each individual server task.
       fallback: function() {},
 
       // Override node env's PORT
-      port: 3000
+      port: 3000,
+
+      // Consider the server to be "running" after an explicit delay (in milliseconds)
+      // (e.g. when server has no initial output)
+      delay: 0,
+
+      // Regular expression that matches server output to indicate it is "running"
+      output: ".+"
     }
   }
 ```
 
 ### Usage
 
+By default, unless `delay` or `output` has been customized,
+**the server is considered "running" once any output is logged to the console**.
+
+Typically, this is normally:
+
+> Express server listening on port 3000
+
+If you log output *before* the server is running, either set `delay` or `output` to indicate
+when the server has officially started.
+
 #### Starting the server
 
 If you have a server defined named `dev`, you can start the server by running `expess:dev`.
-
 
 #### Stopping the server
 

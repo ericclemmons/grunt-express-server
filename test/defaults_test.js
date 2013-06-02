@@ -11,15 +11,19 @@
 var get = require('./lib/get');
 
 module.exports.defaults = {
-  hello: function(test) {
-    test.expect(2);
+  test_server_not_running: function(test) {
+    test.expect(1);
 
-    get('http://localhost:3000/hello.txt', function(res, body) {
-      test.equal(res.statusCode, 200, 'should return 200');
-      test.equal(body, 'Howdy!\n', 'should return static page');
+    try {
+      get('http://localhost:3000/hello.txt', function(res, body) {
+        throw new Error('Server should not be running yet');
+        test.done();
+      }, function(err) {
+        test.equals('ECONNREFUSED', err.code);
+        test.done();
+      });
+    } catch (e) {
       test.done();
-    }, function(err) {
-      test.done();
-    });
+    }
   }
 };

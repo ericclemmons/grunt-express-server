@@ -39,6 +39,12 @@ module.exports = function(grunt) {
       custom_port: {
         src: 'test/custom_port_test.js'
       },
+      custom_delay: {
+        src: 'test/custom_delay_test.js'
+      },
+      custom_output: {
+        src: 'test/custom_output_test.js'
+      },
       stoppable: {
         src: 'test/stoppable_test.js'
       }
@@ -52,12 +58,31 @@ module.exports = function(grunt) {
       defaults: {},
       custom_args: {
         options: {
-          args: [ 1, 2]
+          args: [ 1, 2],
+          output: "Express server listening on port .+"
         }
       },
       custom_port: {
         options: {
-          port: 8080
+          port: 8080,
+          output: "Express server listening on port .+"
+        }
+      },
+      custom_delay: {
+        options: {
+          delay: 1000,
+          output: "This RegEx does not match anything lol"
+        }
+      },
+      custom_output: {
+        options: {
+          output: "timeout"
+        }
+      },
+      custom_delay_output: {
+        options:  {
+          delay: 1000,
+          output: "Express server listening on port .+"
         }
       },
       stoppable: {}
@@ -79,6 +104,8 @@ module.exports = function(grunt) {
     'express:defaults', 'nodeunit:defaults',
     'express:custom_args', 'nodeunit:custom_args',
     'express:custom_port', 'nodeunit:custom_port',
+    'express:custom_delay', 'nodeunit:custom_delay',
+    'express:custom_output', 'nodeunit:custom_output',
     'express:stoppable', 'express:stoppable:stop', 'nodeunit:stoppable'
   ]);
 

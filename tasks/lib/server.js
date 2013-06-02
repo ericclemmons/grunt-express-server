@@ -47,7 +47,17 @@ module.exports = function(grunt) {
           fallback: options.fallback
         }, options.error);
 
-        server.stdout.on('data', finished);
+        if (options.delay) {
+          setTimeout(finished, options.delay);
+        }
+
+        if (options.output) {
+          server.stdout.on('data', function(data){
+            var message = "" + data;
+            var regex = new RegExp(options.output, "gi");
+            if (message.match(regex)) finished();
+          });
+        }
 
         server.stdout.pipe(process.stdout);
         server.stderr.pipe(process.stderr);
@@ -67,6 +77,7 @@ module.exports = function(grunt) {
         grunt.log.writeln('Stopping'.red + ' Express server');
 
         server.kill('SIGTERM');
+        process.removeAllListeners();
         server = null;
       };
 
