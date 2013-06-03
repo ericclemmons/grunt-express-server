@@ -41,7 +41,7 @@ module.exports = function(grunt) {
 
       if (options.background) {
         server = grunt.util.spawn({
-          cmd:      process.argv[0],
+          cmd:      (options.cmd || process.argv[0]),
           args:     options.args,
           env:      process.env,
           fallback: options.fallback
