@@ -22,12 +22,12 @@ module.exports = function(grunt) {
 
   return {
     start: function(options) {
+      var _this = this;
       if (server) {
         this.stop();
 
         if (grunt.task.current.flags.stop) {
           finished();
-
           return;
         }
       };
@@ -38,19 +38,29 @@ module.exports = function(grunt) {
 
       // Set PORT for new processes
       process.env.PORT = options.port;
+      var spawnOptions = {
+        cmd:      (options.cmd || process.argv[0]),
+        args:     options.args,
+        env:      process.env,
+        fallback: options.fallback
+      };
+
+      var doneHandler = options.background? options.error : function() {
+        finished();
+        options.error.apply(options, arguments);
+      };
+
+      server = grunt.util.spawn({
+        cmd:      (options.cmd || process.argv[0]),
+        args:     options.args,
+        env:      process.env,
+        fallback: options.fallback
+      }, doneHandler);
 
       if (options.background) {
-        server = grunt.util.spawn({
-          cmd:      (options.cmd || process.argv[0]),
-          args:     options.args,
-          env:      process.env,
-          fallback: options.fallback
-        }, options.error);
-
         if (options.delay) {
           setTimeout(finished, options.delay);
         }
-
         if (options.output) {
           server.stdout.on('data', function(data){
             var message = "" + data;
@@ -58,29 +68,23 @@ module.exports = function(grunt) {
             if (message.match(regex)) finished();
           });
         }
-
-        server.stdout.pipe(process.stdout);
-        server.stderr.pipe(process.stderr);
-      } else {
-        // Server is ran in current process
-        server = require(options.script);
-        // End the task when SIGINT (Ctrl + C) is recieved
-        process.on('SIGINT', finished);
       }
+      
+      server.stdout.pipe(process.stdout);
+      server.stderr.pipe(process.stderr);
 
-      process.on('exit', finished);
-      process.on('exit', this.stop);
+      process.once('SIGINT',  function(){ _this.stop('SIGINT');  });
+      process.once('SIGTERM', function(){ _this.stop('SIGTERM'); });
+      process.once('exit', this.stop);
     },
 
-    stop: function() {
+    stop: function(signal) {
       if (server) {
         grunt.log.writeln('Stopping'.red + ' Express server');
-
-        server.kill('SIGTERM');
+        server.kill(signal? signal : 'SIGTERM');
         process.removeAllListeners();
         server = null;
       };
-
       finished();
     }
   };
