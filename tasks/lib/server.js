@@ -12,12 +12,17 @@ module.exports = function(grunt) {
   var done    = null;
   var server  = null; // Store server between live reloads to close/restart express
 
-  var finished = function() {
+  var taskFinished = function() {
     if (done) {
+      //grunt.log.writeln('Task finished'.green);
       done();
-
       done = null;
     }
+  };
+  var processFinished = function() { 
+    //grunt.log.writeln('Process finished'.green);
+    server = null;
+    taskFinished();
   };
 
   return {
@@ -37,55 +42,46 @@ module.exports = function(grunt) {
       done = grunt.task.current.async();
 
       // Set PORT for new processes
+      // TODO: Shouldn't the port be set on server.env.PORT instead?
       process.env.PORT = options.port;
-      var spawnOptions = {
-        cmd:      (options.cmd || process.argv[0]),
-        args:     options.args,
-        env:      process.env,
-        fallback: options.fallback
-      };
 
-      var doneHandler = options.background? options.error : function() {
-        finished();
-        options.error.apply(options, arguments);
-      };
-
+      // Spawn the express server
       server = grunt.util.spawn({
         cmd:      (options.cmd || process.argv[0]),
         args:     options.args,
         env:      process.env,
         fallback: options.fallback
-      }, doneHandler);
+      }, options.error);
 
+      // Set up signal handlers for the child (server) & parent processes
+      server.once('exit', processFinished);
+      process.once('SIGINT',  function(){ _this.stop('SIGINT');  });
+      process.once('SIGTERM', function(){ _this.stop('SIGTERM'); });
+      process.once('exit', this.stop);
+
+      server.stdout.pipe(process.stdout);
+      server.stderr.pipe(process.stderr);
+      
+      // Delay / response detection for a server running as a background process
       if (options.background) {
         if (options.delay) {
-          setTimeout(finished, options.delay);
+          setTimeout(taskFinished, options.delay);
         }
         if (options.output) {
           server.stdout.on('data', function(data){
             var message = "" + data;
             var regex = new RegExp(options.output, "gi");
-            if (message.match(regex)) finished();
+            if (message.match(regex)) taskFinished();
           });
         }
       }
-      
-      server.stdout.pipe(process.stdout);
-      server.stderr.pipe(process.stderr);
-
-      process.once('SIGINT',  function(){ _this.stop('SIGINT');  });
-      process.once('SIGTERM', function(){ _this.stop('SIGTERM'); });
-      process.once('exit', this.stop);
     },
 
     stop: function(signal) {
       if (server) {
         grunt.log.writeln('Stopping'.red + ' Express server');
         server.kill(signal? signal : 'SIGTERM');
-        process.removeAllListeners();
-        server = null;
       };
-      finished();
     }
   };
 };
