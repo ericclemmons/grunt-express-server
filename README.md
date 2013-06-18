@@ -37,7 +37,8 @@ grunt.initConfig({
     },
     prod: {
       options: {
-        script: 'path/to/prod/server.js'
+        script: 'path/to/prod/server.js',
+        node_env: 'production'
       }
     }
     test: {
@@ -72,6 +73,9 @@ or within each individual server task.
       // Override node env's PORT
       port: 3000,
 
+      // Override node env's NODE_ENV
+      node_env: undefined,
+
       // Consider the server to be "running" after an explicit delay (in milliseconds)
       // (e.g. when server has no initial output)
       delay: 0,
@@ -97,7 +101,7 @@ when the server has officially started.
 
 #### Starting the server
 
-If you have a server defined named `dev`, you can start the server by running `expess:dev`.
+If you have a server defined named `dev`, you can start the server by running `express:dev`.
 
 #### Stopping the server
 
