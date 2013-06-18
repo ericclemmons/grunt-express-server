@@ -17,7 +17,6 @@ module.exports.defaults = {
     try {
       get('http://localhost:3000/hello.txt', function(res, body) {
         throw new Error('Server should not be running yet');
-        test.done();
       }, function(err) {
         test.equals('ECONNREFUSED', err.code);
         test.done();
