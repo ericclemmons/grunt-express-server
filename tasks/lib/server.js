@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 
   return {
     start: function(options) {
-      var _this = this;
+      var self = this;
       if (server) {
         this.stop();
 
@@ -42,21 +42,20 @@ module.exports = function(grunt) {
       done = grunt.task.current.async();
 
       // Set PORT for new processes
-      // TODO: Shouldn't the port be set on server.env.PORT instead?
-      process.env.PORT = options.port;
+      serverEnv = grunt._.assign({}, process.env, {PORT: options.port});
 
       // Spawn the express server
       server = grunt.util.spawn({
         cmd:      (options.cmd || process.argv[0]),
         args:     options.args,
-        env:      process.env,
+        env:      serverEnv,
         fallback: options.fallback
       }, options.error);
 
       // Set up signal handlers for the child (server) & parent processes
       server.once('exit', processFinished);
-      process.once('SIGINT',  function(){ _this.stop('SIGINT');  });
-      process.once('SIGTERM', function(){ _this.stop('SIGTERM'); });
+      process.once('SIGINT',  function(){ self.stop('SIGINT');  });
+      process.once('SIGTERM', function(){ self.stop('SIGTERM'); });
       process.once('exit', this.stop);
 
       server.stdout.pipe(process.stdout);
