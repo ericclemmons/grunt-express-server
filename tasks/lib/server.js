@@ -42,7 +42,7 @@ module.exports = function(grunt) {
       done = grunt.task.current.async();
 
       // Set PORT for new processes
-      serverEnv = grunt._.assign({}, process.env, {PORT: options.port});
+      var serverEnv = grunt.util._.extend({}, process.env, {PORT: options.port});
 
       // Spawn the express server
       server = grunt.util.spawn({
