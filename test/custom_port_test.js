@@ -21,5 +21,17 @@ module.exports.custom_port = {
     }, function(err) {
       test.done();
     });
+  },
+
+  test_runs_in_development: function(test) {
+    test.expect(2);
+
+    get('http://localhost:8080/env', function(res, body) {
+      test.equal(res.statusCode, 200, 'should return 200');
+      test.equal(body, 'Howdy from development!', 'should return dynamic page');
+      test.done();
+    }, function(err) {
+      test.done();
+    });
   }
 };

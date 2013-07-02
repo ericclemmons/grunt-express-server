@@ -14,9 +14,9 @@ module.exports.custom_node_env = {
   test_site_configured_for_production: function(test) {
     test.expect(2);
 
-    get('http://localhost:3000/production', function(res, body) {
+    get('http://localhost:3000/env', function(res, body) {
       test.equal(res.statusCode, 200, 'should return 200');
-      test.equal(body, 'Production Howdy!', 'should return static page');
+      test.equal(body, 'Howdy from production!', 'should return dynamic page');
       test.done();
     }, function(err) {
       test.done();
