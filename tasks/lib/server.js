@@ -11,6 +11,7 @@
 module.exports = function(grunt) {
   var done    = null;
   var server  = null; // Store server between live reloads to close/restart express
+  var backup  = JSON.parse(JSON.stringify(process.env)); // Clone process.env
 
   var finished = function() {
     if (done) {
@@ -86,6 +87,9 @@ module.exports = function(grunt) {
         server.kill('SIGTERM');
         process.removeAllListeners();
         server = null;
+
+        // Restore original process.env
+        process.env = JSON.parse(JSON.stringify(backup));
       }
 
       finished();
