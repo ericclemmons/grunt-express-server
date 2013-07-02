@@ -132,6 +132,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### v0.4.1
+
+- Add `node_env` option that sets `NODE_ENV` when running the server & restores original env upon closing, thanks to @jgable!
+
 ### v0.4.0
 
 - Add `delay` option that, when set, passes control back to grunt after timeout
