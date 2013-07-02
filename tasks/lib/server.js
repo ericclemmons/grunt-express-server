@@ -81,7 +81,7 @@ module.exports = function(grunt) {
     },
 
     stop: function() {
-      if (server) {
+      if (server && server.kill) {
         grunt.log.writeln('Stopping'.red + ' Express server');
 
         server.kill('SIGTERM');
