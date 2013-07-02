@@ -72,8 +72,6 @@ module.exports = function(grunt) {
       } else {
         // Server is ran in current process
         server = require(options.script);
-
-        finished();
       }
 
       process.on('exit', finished);
