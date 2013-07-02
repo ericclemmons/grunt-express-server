@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 
           return;
         }
-      };
+      }
 
       grunt.log.writeln('Starting '.cyan + (options.background ? 'background' : 'foreground') + ' Express server');
 
@@ -38,6 +38,11 @@ module.exports = function(grunt) {
 
       // Set PORT for new processes
       process.env.PORT = options.port;
+
+      // Set NODE_ENV for new processes
+      if (options.node_env) {
+        process.env.NODE_ENV = options.node_env;
+      }
 
       if (options.background) {
         server = grunt.util.spawn({
@@ -55,7 +60,9 @@ module.exports = function(grunt) {
           server.stdout.on('data', function(data){
             var message = "" + data;
             var regex = new RegExp(options.output, "gi");
-            if (message.match(regex)) finished();
+            if (message.match(regex)) {
+              finished();
+            }
           });
         }
 
@@ -79,7 +86,7 @@ module.exports = function(grunt) {
         server.kill('SIGTERM');
         process.removeAllListeners();
         server = null;
-      };
+      }
 
       finished();
     }

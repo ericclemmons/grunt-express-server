@@ -17,6 +17,7 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('express', 'Start an express web server', function() {
     var options = this.options({
       args:          [ ],
+      node_env:      undefined,
       background:    true,
       error:         function(err, result, code) { /* Callback has to exist */ },
       fallback:      function() { /* Prevent EADDRINUSE from breaking Grunt */ },
