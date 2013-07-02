@@ -65,6 +65,11 @@ module.exports = function(grunt) {
           output: "Express server listening on port .+"
         }
       },
+      custom_background: {
+        options: {
+          background: false
+        }
+      },
       custom_port: {
         options: {
           port: 8080,
