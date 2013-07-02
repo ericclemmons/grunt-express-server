@@ -104,24 +104,6 @@ If you have a server defined named `dev`, you can start the server by running `e
 Similarly, if you start the `dev` server with `express:dev`, you can stop the server
 with `express:dev:stop`.
 
-#### With [grunt-contrib-livereload](https://github.com/gruntjs/grunt-contrib-livereload)
-
-```js
-grunt.initConfig({
-  watch: {
-    express: {
-      files:  [ 'path/to/files/to/watch/**.js' ],
-      tasks:  [ 'express:dev', 'livereload' ]
-    }
-  }
-});
-
-grunt.registerTask('server', [ 'express:dev', 'livereload', 'watch' ])
-```
-
-This will let you override `grunt server` with a LiveReload-able Express Server.
-Finally, you can make changes to your API and watch the JSON change in your browser!
-
 #### With [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch)
 
 ```js
