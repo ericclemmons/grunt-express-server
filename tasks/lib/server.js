@@ -13,7 +13,7 @@ module.exports = function(grunt) {
   var server  = null; // Store server between live reloads to close/restart express
   var backup  = JSON.parse(JSON.stringify(process.env)); // Clone process.env
 
-  // For some weird reason, on Windows the process.env stringify produces a "Path" 
+  // For some weird reason, on Windows the process.env stringify produces a "Path"
   // member instead of a "PATH" member, and grunt chokes when it can't find PATH.
   if (!backup.PATH) {
     if (backup.Path) {
@@ -52,6 +52,11 @@ module.exports = function(grunt) {
       // Set NODE_ENV for new processes
       if (options.node_env) {
         process.env.NODE_ENV = options.node_env;
+      }
+
+      // Set debug mode for node-inspector
+      if(options.debug) {
+        options.args.unshift('--debug');
       }
 
       if (options.background) {
