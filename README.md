@@ -81,7 +81,10 @@ or within each individual server task.
       delay: 0,
 
       // Regular expression that matches server output to indicate it is "running"
-      output: ".+"
+      output: ".+",
+
+      // Set --debug
+      debug: false
     }
   }
 ```
