@@ -135,6 +135,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### v0.4.2
+
+- Add `debug` option that gets enables Node's debugger, ideally for use with [node-inspector](https://github.com/node-inspector/node-inspector)
+
 ### v0.4.1
 
 - Add `node_env` option that sets `NODE_ENV` when running the server & restores original env upon closing, thanks to @jgable!
