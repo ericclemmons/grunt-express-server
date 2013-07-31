@@ -23,7 +23,8 @@ module.exports = function(grunt) {
       fallback:      function() { /* Prevent EADDRINUSE from breaking Grunt */ },
       port:          3000,
       delay:         0,
-      output:        ".+"
+      output:        ".+",
+      debug:         false
     });
 
     options.script = path.resolve(options.script);
