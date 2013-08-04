@@ -33,6 +33,9 @@ module.exports = function(grunt) {
       defaults: {
         src: 'test/defaults_test.js'
       },
+      custom_cmd: {
+        src: 'test/custom_cmd_test.js'
+      },
       custom_args: {
         src: 'test/custom_args_test.js'
       },
@@ -59,6 +62,13 @@ module.exports = function(grunt) {
         port: 3000
       },
       defaults: {},
+      custom_cmd: {
+        options: {
+          script: './test/coffeescript-server.coffee',
+          cmd: "coffee",
+          output: "Express server listening on port .+"
+        }
+      },
       custom_args: {
         options: {
           args: [ 1, 2],
@@ -116,6 +126,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', [
     'clean',
     'express:defaults', 'nodeunit:defaults',
+    'express:custom_cmd', 'nodeunit:custom_cmd',
     'express:custom_args', 'nodeunit:custom_args',
     'express:custom_port', 'nodeunit:custom_port',
     'express:custom_node_env', 'nodeunit:custom_node_env',

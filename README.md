@@ -58,6 +58,10 @@ or within each individual server task.
 ```js
   express: {
     options: {
+      // Override the command used to start the server.
+      // (e.g. 'coffee' instead of the default 'node' to enable CoffeeScript support)
+      cmd: undefined,
+
       // Will turn into: `node path/to/server.js ARG1 ARG2 ... ARGN`
       args: [ ],
 

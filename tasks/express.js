@@ -16,6 +16,7 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('express', 'Start an express web server', function() {
     var options = this.options({
+      cmd:           undefined,
       args:          [ ],
       node_env:      undefined,
       background:    true,
