@@ -28,13 +28,13 @@
     "test": "./node_modules/.bin/grunt"
   },
   "devDependencies": {
+    "coffee-script": "1.6.3",
     "express": "~3.2.4",
     "grunt": "~0.4.0",
     "grunt-cli": "~0.1.6",
     "grunt-contrib-jshint": "~0.1.1",
     "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-nodeunit": "~0.1.2",
-    "coffee-script": "1.6.3"
+    "grunt-contrib-nodeunit": "~0.1.2"
   },
   "peerDependencies": {
     "grunt": "~0.4.0"
