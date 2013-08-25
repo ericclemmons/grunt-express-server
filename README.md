@@ -60,7 +60,7 @@ or within each individual server task.
     options: {
       // Override the command used to start the server.
       // (e.g. 'coffee' instead of the default 'node' to enable CoffeeScript support)
-      cmd: undefined,
+      cmd: process.argv[0],
 
       // Will turn into: `node path/to/server.js ARG1 ARG2 ... ARGN`
       args: [ ],
@@ -138,6 +138,10 @@ grunt.registerTask('server', [ 'express:dev', 'watch' ])
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+
+### v0.4.3
+
+- Add `cmd` option that defaults to Node, but can be set to `coffee` for Coffeescript support, thanks to @JonET ([#15](https://github.com/ericclemmons/grunt-express-server/pull/15))
 
 ### v0.4.2
 
