@@ -1,4 +1,5 @@
 "use strict"
+
 express = require("express")
 app = module.exports = express()
 app.configure ->

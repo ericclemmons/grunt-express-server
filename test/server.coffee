@@ -3,7 +3,7 @@
 ###
 Test Server - CoffeeScript Edition
 ###
-app = require("./coffeescript-app")
+app = require("./app.coffee")
 start = Date.now()
 log = (message) ->
   console.log "[" + (Date.now() - start) + "] " + message

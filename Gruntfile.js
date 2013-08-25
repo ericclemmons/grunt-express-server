@@ -64,7 +64,7 @@ module.exports = function(grunt) {
       defaults: {},
       custom_cmd: {
         options: {
-          script: './test/coffeescript-server.coffee',
+          script: './test/server.coffee',
           cmd: "coffee",
           output: "Express server listening on port .+"
         }
