@@ -109,6 +109,11 @@ module.exports = function(grunt) {
           output: "Express server listening on port .+"
         }
       },
+      quiet: {
+        options: {
+          script: './test/server-quiet.js'
+        }
+      },
       stoppable: {}
     }
   });
