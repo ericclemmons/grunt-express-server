@@ -40,7 +40,7 @@ grunt.initConfig({
         script: 'path/to/prod/server.js',
         node_env: 'production'
       }
-    }
+    },
     test: {
       options: {
         script: 'path/to/test/server.js'
