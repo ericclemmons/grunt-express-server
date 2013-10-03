@@ -11,16 +11,7 @@
 module.exports = function(grunt) {
   var done    = null;
   var server  = null; // Store server between live reloads to close/restart express
-  var backup  = JSON.parse(JSON.stringify(process.env)); // Clone process.env
-
-  // For some weird reason, on Windows the process.env stringify produces a "Path"
-  // member instead of a "PATH" member, and grunt chokes when it can't find PATH.
-  if (!backup.PATH) {
-    if (backup.Path) {
-      backup.PATH = backup.Path;
-      delete backup.Path;
-    }
-  }
+  var backup  = null;
 
   var finished = function() {
     if (done) {
@@ -39,6 +30,17 @@ module.exports = function(grunt) {
           finished();
 
           return;
+        }
+      }
+
+      backup = JSON.parse(JSON.stringify(process.env)); // Clone process.env
+
+      // For some weird reason, on Windows the process.env stringify produces a "Path"
+      // member instead of a "PATH" member, and grunt chokes when it can't find PATH.
+      if (!backup.PATH) {
+        if (backup.Path) {
+          backup.PATH = backup.Path;
+          delete backup.Path;
         }
       }
 
