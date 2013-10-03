@@ -139,36 +139,16 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
-### v0.4.3
-
-- Add `cmd` option that defaults to Node, but can be set to `coffee` for Coffeescript support, thanks to @JonET ([#15](https://github.com/ericclemmons/grunt-express-server/pull/15))
-
-### v0.4.2
-
-- Add `debug` option that gets enables Node's debugger, ideally for use with [node-inspector](https://github.com/node-inspector/node-inspector)
-
-### v0.4.1
-
-- Add `node_env` option that sets `NODE_ENV` when running the server & restores original env upon closing, thanks to @jgable!
-
-### v0.4.0
-
-- Add `delay` option that, when set, passes control back to grunt after timeout
-- Add `output` regular expression option that, when set, waits for matching message before passing control back to grunt
-
-### v0.3.1
-
-- Try to force notification that `express` task has finished as much as possible
-
-### v0.3.0
-
-- `express` is now a multitask with customizable options, better error handling and `:stop` task
-
-### v0.2.0
-
-- Change `express-server` task to `express`
-- Config is set via `express: '...'` instead of `server: { script: '...' } `
-
-### v0.1.0
-
-- Initial import from [Genesis Skeleton](https://github.com/ericclemmons/genesis-skeleton) & release
+- v0.4.4 - Fix for using `grunt-env` to change environments, thanks to @FredrikAppelros ([#20](https://github.com/ericclemmons/grunt-express-server/pull/20))
+- v0.4.3 - Add `cmd` option that defaults to Node, but can be set to `coffee` for Coffeescript support, thanks to @JonET ([#15](https://github.com/ericclemmons/grunt-express-server/pull/15))
+- v0.4.2 - Add `debug` option that gets enables Node's debugger, ideally for use with [node-inspector](https://github.com/node-inspector/node-inspector)
+- v0.4.1 - Add `node_env` option that sets `NODE_ENV` when running the server & restores original env upon closing, thanks to @jgable!
+- v0.4.0
+  - Add `delay` option that, when set, passes control back to grunt after timeout
+  - Add `output` regular expression option that, when set, waits for matching message before passing control back to grunt
+- v0.3.1 - Try to force notification that `express` task has finished as much as possible
+- v0.3.0 - `express` is now a multitask with customizable options, better error handling and `:stop` task
+- v0.2.0
+  - Change `express-server` task to `express`
+  - Config is set via `express: '...'` instead of `server: { script: '...' } `
+- v0.1.0 - Initial import from [Genesis Skeleton](https://github.com/ericclemmons/genesis-skeleton) & release
