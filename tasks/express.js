@@ -12,9 +12,15 @@ var path = require('path');
 
 module.exports = function(grunt) {
 
-  var server = require('./lib/server')(grunt);
+  var servers = {};
 
   grunt.registerMultiTask('express', 'Start an express web server', function() {
+    if (!servers[this.target]) {
+      servers[this.target] = require('./lib/server')(grunt);
+    }
+
+    var server  = servers[this.target];
+    var action  = this.args.shift() || 'start';
     var options = this.options({
       cmd:           process.argv[0],
       args:          [ ],
@@ -38,6 +44,6 @@ module.exports = function(grunt) {
       return false;
     }
 
-    server.start(options);
+    server[action](options);
   });
 };
