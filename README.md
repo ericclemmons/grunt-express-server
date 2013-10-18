@@ -139,6 +139,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.4.5 – Support multiple servers running at once ([#23](https://github.com/ericclemmons/grunt-express-server/pull/23))
 - v0.4.4 - Fix for using `grunt-env` to change environments, thanks to @FredrikAppelros ([#20](https://github.com/ericclemmons/grunt-express-server/pull/20))
 - v0.4.3 - Add `cmd` option that defaults to Node, but can be set to `coffee` for Coffeescript support, thanks to @JonET ([#15](https://github.com/ericclemmons/grunt-express-server/pull/15))
 - v0.4.2 - Add `debug` option that gets enables Node's debugger, ideally for use with [node-inspector](https://github.com/node-inspector/node-inspector)
