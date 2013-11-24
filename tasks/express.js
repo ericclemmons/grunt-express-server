@@ -30,6 +30,7 @@ module.exports = function(grunt) {
       fallback:      function() { /* Prevent EADDRINUSE from breaking Grunt */ },
       port:          3000,
       delay:         0,
+      livereload:    false,
       output:        ".+",
       debug:         false
     });
@@ -37,6 +38,12 @@ module.exports = function(grunt) {
     options.script = path.resolve(options.script);
 
     options.args.unshift(options.script);
+
+    if (options.livereload !== false) {
+        if (options.livereload === true) {
+            options.livereload = 35729;
+        }
+    }
 
     if (!grunt.file.exists(options.script)) {
       grunt.log.error('Could not find server script: ' + options.script);

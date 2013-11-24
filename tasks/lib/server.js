@@ -90,6 +90,10 @@ module.exports = function(grunt) {
         server = require(options.script);
       }
 
+      if (options.livereload !== false) {
+        server.use(require('connect-livereload')({port: options.livereload}));
+      }
+
       process.on('exit', finished);
       process.on('exit', this.stop);
     },

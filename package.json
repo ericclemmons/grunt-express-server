@@ -27,6 +27,9 @@
   "scripts": {
     "test": "./node_modules/.bin/grunt"
   },
+  "dependencies": {
+    "connect-livereload": "~0.3.0"
+  },
   "devDependencies": {
     "coffee-script": "1.6.3",
     "express": "~3.2.4",
