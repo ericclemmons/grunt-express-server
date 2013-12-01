@@ -36,6 +36,7 @@ module.exports = function(grunt) {
         },
         files: [
           'Gruntfile.js',
+          'tasks/**/*.js',
           'test/**/*.js'
         ],
         tasks: ['express:defaults']
