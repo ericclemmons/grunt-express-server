@@ -109,7 +109,6 @@ module.exports = function(grunt, target) {
 
       // Restore original process.env
       if (backup) {
-        grunt.log.writeln('Restoring process.env');
         process.env = JSON.parse(JSON.stringify(backup));
       }
 

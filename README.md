@@ -143,6 +143,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.4.6 – Store running servers on `process._servers[target]` ([#22](https://github.com/ericclemmons/grunt-express-server/issues/22))
 - v0.4.5 – Support multiple servers running at once ([#23](https://github.com/ericclemmons/grunt-express-server/pull/23))
 - v0.4.4 - Fix for using `grunt-env` to change environments, thanks to @FredrikAppelros ([#20](https://github.com/ericclemmons/grunt-express-server/pull/20))
 - v0.4.3 - Add `cmd` option that defaults to Node, but can be set to `coffee` for Coffeescript support, thanks to @JonET ([#15](https://github.com/ericclemmons/grunt-express-server/pull/15))
