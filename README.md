@@ -1,4 +1,8 @@
-# grunt-express-server [![Build Status](https://travis-ci.org/ericclemmons/grunt-express-server.png?branch=master)](https://travis-ci.org/ericclemmons/grunt-express-server)
+# grunt-express-server
+
+[![Build Status](https://travis-ci.org/ericclemmons/grunt-express-server.png?branch=master)](https://travis-ci.org/ericclemmons/grunt-express-server)
+[![Dependencies](https://david-dm.org/ericclemmons/grunt-express-server.png)](https://david-dm.org/ericclemmons/grunt-express-server)
+[![devDependencies](https://david-dm.org/ericclemmons/grunt-express-server/dev-status.png)](https://david-dm.org/ericclemmons/grunt-express-server#info=devDependencies&view=table)
 
 > Simple grunt task for running an Express server that works great with LiveReload + Watch/Regarde
 
