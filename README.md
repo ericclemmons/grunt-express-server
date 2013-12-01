@@ -72,9 +72,6 @@ or within each individual server task.
       // Setting to `false` will effectively just run `node path/to/server.js`
       background: true,
 
-      // Called if spawning the server fails
-      error: function(err, result, code) {},
-
       // Called when the spawned server throws errors
       fallback: function() {},
 
@@ -143,6 +140,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.4.7 – Remove broken `error` option ([#27](https://github.com/ericclemmons/grunt-express-server/issues/27))
 - v0.4.6 – Store running servers on `process._servers[target]` ([#22](https://github.com/ericclemmons/grunt-express-server/issues/22))
 - v0.4.5 – Support multiple servers running at once ([#23](https://github.com/ericclemmons/grunt-express-server/pull/23))
 - v0.4.4 - Fix for using `grunt-env` to change environments, thanks to @FredrikAppelros ([#20](https://github.com/ericclemmons/grunt-express-server/pull/20))
