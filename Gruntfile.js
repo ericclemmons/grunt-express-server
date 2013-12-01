@@ -86,7 +86,7 @@ module.exports = function(grunt) {
       },
       custom_args: {
         options: {
-          args: [ 1, 2],
+          args: [1, 2],
           output: "Express server listening on port .+"
         }
       },
