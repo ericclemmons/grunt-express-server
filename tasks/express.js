@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('express', 'Start an express web server', function() {
     if (!servers[this.target]) {
-      servers[this.target] = require('./lib/server')(grunt);
+      servers[this.target] = require('./lib/server')(grunt, this.target);
     }
 
     var server  = servers[this.target];

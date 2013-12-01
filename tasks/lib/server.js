@@ -8,10 +8,14 @@
 
 'use strict';
 
-module.exports = function(grunt) {
-  var done    = null;
-  var server  = null; // Store server between live reloads to close/restart express
+module.exports = function(grunt, target) {
+  if (!process._servers) {
+    process._servers = {};
+  }
+
   var backup  = null;
+  var done    = null;
+  var server  = process._servers[target]; // Store server between live reloads to close/restart express
 
   var finished = function() {
     if (done) {
@@ -62,7 +66,7 @@ module.exports = function(grunt) {
       }
 
       if (options.background) {
-        server = grunt.util.spawn({
+        server = process._servers[target] = grunt.util.spawn({
           cmd:      options.cmd,
           args:     options.args,
           env:      process.env,
@@ -87,7 +91,7 @@ module.exports = function(grunt) {
         server.stderr.pipe(process.stderr);
       } else {
         // Server is ran in current process
-        server = require(options.script);
+        server = process._servers[target] = require(options.script);
       }
 
       process.on('exit', finished);
@@ -100,9 +104,12 @@ module.exports = function(grunt) {
 
         server.kill('SIGTERM');
         process.removeAllListeners();
-        server = null;
+        server = process._servers[target] = null;
+      }
 
-        // Restore original process.env
+      // Restore original process.env
+      if (backup) {
+        grunt.log.writeln('Restoring process.env');
         process.env = JSON.parse(JSON.stringify(backup));
       }
 
