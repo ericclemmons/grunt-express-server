@@ -128,7 +128,7 @@ grunt.initConfig({
       files:  [ '**/*.js' ],
       tasks:  [ 'express:dev' ],
       options: {
-        nospawn: true //Without this option specified express won't be reloaded
+        spawn: false // Without this option specified express won't be reloaded
       }
     }
   }
