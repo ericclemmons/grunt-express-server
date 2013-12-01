@@ -78,7 +78,7 @@ module.exports = function(grunt, target) {
         }
 
         if (options.output) {
-          server.stdout.on('data', function(data){
+          server.stdout.on('data', function(data) {
             var message = "" + data;
             var regex = new RegExp(options.output, "gi");
             if (message.match(regex)) {
