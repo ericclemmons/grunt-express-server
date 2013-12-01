@@ -71,7 +71,7 @@ module.exports = function(grunt, target) {
           args:     options.args,
           env:      process.env,
           fallback: options.fallback
-        }, options.error);
+        }, finished);
 
         if (options.delay) {
           setTimeout(finished, options.delay);

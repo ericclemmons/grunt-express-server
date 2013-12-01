@@ -26,7 +26,6 @@ module.exports = function(grunt) {
       args:          [ ],
       node_env:      undefined,
       background:    true,
-      error:         function(err, result, code) { /* Callback has to exist */ },
       fallback:      function() { /* Prevent EADDRINUSE from breaking Grunt */ },
       port:          3000,
       delay:         0,
