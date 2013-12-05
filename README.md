@@ -140,6 +140,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.4.9 – Revert v0.4.8 until [#30](https://github.com/ericclemmons/grunt-express-server/issues/30#issuecomment-29931192) is resolved
 - v0.4.8 – Fix issue with start/restarting multiple instances ([#29](https://github.com/ericclemmons/grunt-express-server/pull/29))
 - v0.4.7 – Remove broken `error` option ([#27](https://github.com/ericclemmons/grunt-express-server/issues/27))
 - v0.4.6 – Store running servers on `process._servers[target]` ([#22](https://github.com/ericclemmons/grunt-express-server/issues/22))
