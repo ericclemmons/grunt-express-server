@@ -155,10 +155,18 @@ module.exports = function(grunt) {
     'express:custom_output',    'nodeunit:custom_output',   'express:custom_output:stop',
     'express:stoppable',        'express:stoppable:stop',   'nodeunit:stoppable',
 
+    // Multiple consecutive starts/stops of the same server
+    'express:custom_delay',     'nodeunit:custom_delay',    'express:custom_delay:stop',
+    'express:custom_delay',     'nodeunit:custom_delay',    'express:custom_delay:stop',
+    'express:custom_delay',     'nodeunit:custom_delay',    'express:custom_delay:stop',
+
     // Multiple servers
     'express:custom_port',      'express:defaults',
     'nodeunit:defaults',        'nodeunit:custom_port',
     'express:custom_port:stop', 'express:defaults:stop',
+
+    // Start but don't stop server
+    'express:defaults'
   ]);
 
   // By default, lint and run all tests.
