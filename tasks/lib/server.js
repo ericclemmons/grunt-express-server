@@ -105,7 +105,7 @@ module.exports = function(grunt, target) {
     },
 
     stop: function() {
-      if (server && server.kill) {        
+      if (server && server.kill) {
         grunt.log.writeln('Stopping'.red + ' Express server');
 
         // grunt.task.current.async() is no more available if stop is called
