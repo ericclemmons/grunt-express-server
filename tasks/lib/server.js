@@ -13,16 +13,15 @@ module.exports = function(grunt, target) {
     process._servers = {};
   }
 
-  var backup    = null;
-  var startdone = null;
-  var stopdone  = null;
-  var server    = process._servers[target]; // Store server between live reloads to close/restart express
+  var backup  = null;
+  var done    = null;
+  var server  = process._servers[target]; // Store server between live reloads to close/restart express
 
   var finished = function() {
-    if (startdone) {
-      startdone();
+    if (done) {
+      done();
 
-      startdone = null;
+      done = null;
     }
   };
 
@@ -51,7 +50,7 @@ module.exports = function(grunt, target) {
 
       grunt.log.writeln('Starting '.cyan + (options.background ? 'background' : 'foreground') + ' Express server');
 
-      startdone = grunt.task.current.async();
+      done = grunt.task.current.async();
 
       // Set PORT for new processes
       process.env.PORT = options.port;
@@ -72,12 +71,7 @@ module.exports = function(grunt, target) {
           args:     options.args,
           env:      process.env,
           fallback: options.fallback
-        }, function (error, result, code) {
-          if (stopdone) {
-            stopdone();
-          }
-          finished();
-        });
+        }, finished);
 
         if (options.delay) {
           setTimeout(finished, options.delay);
@@ -107,12 +101,6 @@ module.exports = function(grunt, target) {
     stop: function() {
       if (server && server.kill) {
         grunt.log.writeln('Stopping'.red + ' Express server');
-
-        // grunt.task.current.async() is no more available if stop is called
-        // from the 'exit' event.
-        if (typeof(grunt.task.current.async) === "function") {
-          stopdone = grunt.task.current.async();
-        }
 
         server.kill('SIGTERM');
         process.removeAllListeners();
