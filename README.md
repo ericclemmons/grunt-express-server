@@ -109,7 +109,7 @@ when the server has officially started.
 
 #### Starting the server
 
-If you have a server defined named `dev`, you can start the server by running `express:dev`.
+If you have a server defined named `dev`, you can start the server by running `express:dev`. The server only runs as long as grunt is running. Once grunt's tasks have completed, the web server stops.
 
 #### Stopping the server
 
