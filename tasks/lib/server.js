@@ -26,7 +26,7 @@ module.exports = function(grunt, target) {
   };
 
   return {
-    start: function(options) {
+    start: function start(options) {
       if (server) {
         this.stop();
 
@@ -98,12 +98,13 @@ module.exports = function(grunt, target) {
       process.on('exit', this.stop);
     },
 
-    stop: function() {
+    stop: function stop() {
       if (server && server.kill) {
         grunt.log.writeln('Stopping'.red + ' Express server');
 
         server.kill('SIGTERM');
-        process.removeAllListeners();
+        process.removeListener('exit', finished);
+        process.removeListener('exit', stop);
         server = process._servers[target] = null;
       }
 
