@@ -64,7 +64,7 @@ module.exports = function(grunt, target) {
       if(options.debug) {
         options.args.unshift('--debug');
         if(options.cmd === 'coffee') {
-          options.args.unshift('--nodejs')
+          options.args.unshift('--nodejs');
         }
       }
 
