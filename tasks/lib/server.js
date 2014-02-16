@@ -63,6 +63,9 @@ module.exports = function(grunt, target) {
       // Set debug mode for node-inspector
       if(options.debug) {
         options.args.unshift('--debug');
+        if(options.cmd === 'coffee') {
+          options.args.unshift('--nodejs');
+        }
       }
 
       if (options.background) {
