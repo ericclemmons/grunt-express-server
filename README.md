@@ -125,7 +125,7 @@ grunt.initConfig({
       files:  [ '**/*.js' ],
       tasks:  [ 'express:dev' ],
       options: {
-        spawn: false // Without this option specified express won't be reloaded
+        spawn: false // for grunt-contrib-watch v0.5.0+, "nospawn: true" for lower versions. Without this option specified express won't be reloaded
       }
     }
   }
