@@ -140,6 +140,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.4.12 – Only remove this task's listeners ([#39](https://github.com/ericclemmons/grunt-express-server/pull/39))
 - v0.4.11 – Revert v0.4.10 until Travis can reproduce it
 - v0.4.10 – Another attempt to fix #28 & #30's server restarting issue ([#31](https://github.com/ericclemmons/grunt-express-server/pull/31))
 - v0.4.9 – Revert v0.4.8 until [#30](https://github.com/ericclemmons/grunt-express-server/issues/30#issuecomment-29931192) is resolved
