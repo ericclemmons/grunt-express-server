@@ -17,7 +17,9 @@ module.exports = function(grunt, target) {
   var done    = null;
   var server  = process._servers[target]; // Store server between live reloads to close/restart express
 
-  var finished = function() {
+  var finished = function(error, result, code) {
+    if(code === 143)
+      return;
     if (done) {
       done();
 
