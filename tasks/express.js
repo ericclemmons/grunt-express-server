@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 
     options.script = path.resolve(options.script);
 
-    options.args.unshift(options.script);
+    options.args.push(options.script);
 
     if (!grunt.file.exists(options.script)) {
       grunt.log.error('Could not find server script: ' + options.script);
