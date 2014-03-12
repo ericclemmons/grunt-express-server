@@ -90,8 +90,17 @@ module.exports = function(grunt, target) {
           });
         }
 
-        server.stdout.pipe(process.stdout);
-        server.stderr.pipe(process.stderr);
+        var out = process.stdout, err = process.stderr;
+	if(options.logs) {
+		var fs = require('fs'), path = require('path');
+		if(options.logs.out)
+			out = fs.createWriteStream(path.resolve(options.logs.out), {flags: 'a'});
+
+		if(options.logs.err)
+                        err = fs.createWriteStream(path.resolve(options.logs.err), {flags: 'a'});
+	}
+	server.stdout.pipe(out);
+	server.stderr.pipe(err);
       } else {
         // Server is ran in current process
         server = process._servers[target] = require(options.script);
