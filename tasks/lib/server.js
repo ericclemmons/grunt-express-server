@@ -61,25 +61,31 @@ module.exports = function(grunt, target) {
       }
 
       if (options.cmd === 'coffee') {
-        grunt.log.writeln('You are using cmd: coffee'.red);
+        grunt.log.writeln('You are using Coffee-script'.red);
         grunt.log.writeln('coffee does not allow a restart of the server'.red);
-        grunt.log.writeln('use cmdArgs: ["path/to/your/coffee"] instead'.red);
+        var coffeePath = './node_modules/coffee-script/bin/coffee';
+        if (require('fs').existsSync(coffeePath)) {
+          grunt.log.writeln('found local coffee-script: '.green+ coffeePath.green);
+          grunt.log.writeln('using nodejs with local coffe-script instead'.green);
+          options.cmd = 'node';
+          options.args.unshift(coffeePath);
+        } else {
+          grunt.log.writeln('no local coffee-script found');
+          grunt.log.writeln('please install coffee-script locally, so we can use node with coffee-script.');
+        }
       }
       
 
       // Set debug mode for node-inspector
       if (options.debug) {
-        options.cmdArgs.unshift('--debug');
-        if (options.cmd === 'coffee') {
-          options.cmdArgs.unshift('--nodejs');
-        }
+        options.args.unshift('--debug');
       }
 
       if (options.background) {
         donefunc = (options.delay || options.output) ?  function() {} : finished;
         server = process._servers[target] = grunt.util.spawn({
           cmd:      options.cmd,
-          args:     options.cmdArgs.concat(options.args),
+          args:     options.args,
           env:      process.env,
           fallback: options.fallback
         }, donefunc);

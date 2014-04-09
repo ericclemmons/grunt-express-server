@@ -63,13 +63,8 @@ or within each individual server task.
   express: {
     options: {
       // Override the command used to start the server.
-      // (do not use 'coffee' here, the server will not be able to restart
-      //  see below at cmdArgs for coffee-script support)
+      // (e.g. 'coffee' instead of the default 'node' to enable CoffeeScript support)
       cmd: process.argv[0],
-
-      // Will turn into: `node CMDARG1 CMDARG2 ... CMDARGN path/to/server.js ARG1 ARG2 ... ARGN`
-      // (e.g. ['node_modules/coffee-script/bin/coffee'] will correctly parse coffee-script)
-      cmdArgs: [ ],
 
       // Will turn into: `node path/to/server.js ARG1 ARG2 ... ARGN`
       args: [ ],
