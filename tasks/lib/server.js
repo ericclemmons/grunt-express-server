@@ -60,25 +60,12 @@ module.exports = function(grunt, target) {
         process.env.NODE_ENV = options.node_env;
       }
 
-      if (options.cmd === 'coffee') {
-        grunt.log.writeln('You are using Coffee-script'.red);
-        grunt.log.writeln('coffee does not allow a restart of the server'.red);
-        var coffeePath = './node_modules/coffee-script/bin/coffee';
-        if (require('fs').existsSync(coffeePath)) {
-          grunt.log.writeln('found local coffee-script: '.green+ coffeePath.green);
-          grunt.log.writeln('using nodejs with local coffe-script instead'.green);
-          options.cmd = 'node';
-          options.args.unshift(coffeePath);
-        } else {
-          grunt.log.writeln('no local coffee-script found');
-          grunt.log.writeln('please install coffee-script locally, so we can use node with coffee-script.');
-        }
-      }
-      
-
       // Set debug mode for node-inspector
-      if (options.debug) {
+      if(options.debug) {
         options.args.unshift('--debug');
+        if(options.cmd === 'coffee') {
+          options.args.unshift('--nodejs');
+        }
       }
 
       if (options.background) {
