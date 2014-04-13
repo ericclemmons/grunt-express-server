@@ -23,6 +23,7 @@ module.exports = function(grunt) {
     var action  = this.args.shift() || 'start';
     var options = this.options({
       cmd:           process.argv[0],
+      opts:          [ ],
       args:          [ ],
       node_env:      undefined,
       background:    true,
