@@ -63,22 +63,22 @@ module.exports = function(grunt, target) {
       if (options.cmd === 'coffee') {
         grunt.log.writeln('You are using cmd: coffee'.red);
         grunt.log.writeln('coffee does not allow a restart of the server'.red);
-        grunt.log.writeln('use cmdArgs: ["path/to/your/coffee"] instead'.red);
+        grunt.log.writeln('use opts: ["path/to/your/coffee"] instead'.red);
       }
       
 
       // Set debug mode for node-inspector
       if (options.debug) {
-        options.cmdArgs.unshift('--debug');
+        options.opts.unshift('--debug');
         if (options.cmd === 'coffee') {
-          options.cmdArgs.unshift('--nodejs');
+          options.opts.unshift('--nodejs');
         }
       }
 
       if (options.background) {
         server = process._servers[target] = grunt.util.spawn({
           cmd:      options.cmd,
-          args:     options.cmdArgs.concat(options.args),
+          args:     options.opts.concat(options.args),
           env:      process.env,
           fallback: options.fallback
         }, finished);
