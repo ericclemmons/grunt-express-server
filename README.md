@@ -143,6 +143,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.4.16 – Update `devDependencies`
 - v0.4.15 – Recommend using local `coffee` with additional arguments ([#50](https://github.com/ericclemmons/grunt-express-server/pull/50))
 - v0.4.14 – Attempt to fix issues running Coffeescript ([#54](https://github.com/ericclemmons/grunt-express-server/pull/54))
 - v0.4.13 – Add `--nodejs` for Coffeescript users ([#37](https://github.com/ericclemmons/grunt-express-server/issues/37))
