@@ -31,12 +31,14 @@ module.exports = function(grunt) {
       port:          3000,
       delay:         0,
       output:        ".+",
-      debug:         false
+      debug:         false,
+      opts:          [ ]
     });
 
     options.script = path.resolve(options.script);
 
     options.args.unshift(options.script);
+    options.args = options.opts.concat(options.args);
 
     if (!grunt.file.exists(options.script)) {
       grunt.log.error('Could not find server script: ' + options.script);
