@@ -140,6 +140,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.4.14 – Attempt to fix issues running Coffeescript ([#54](https://github.com/ericclemmons/grunt-express-server/pull/54))
 - v0.4.13 – Add `--nodejs` for Coffeescript users ([#37](https://github.com/ericclemmons/grunt-express-server/issues/37))
 - v0.4.12 – Only remove this task's listeners ([#39](https://github.com/ericclemmons/grunt-express-server/pull/39))
 - v0.4.11 – Revert v0.4.10 until Travis can reproduce it
