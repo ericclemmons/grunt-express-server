@@ -69,12 +69,13 @@ module.exports = function(grunt, target) {
       }
 
       if (options.background) {
+        var donefunc = (options.delay || options.output) ?  function() {} : finished;
         server = process._servers[target] = grunt.util.spawn({
           cmd:      options.cmd,
           args:     options.args,
           env:      process.env,
           fallback: options.fallback
-        }, finished);
+        }, donefunc);
 
         if (options.delay) {
           setTimeout(finished, options.delay);
