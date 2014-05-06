@@ -100,7 +100,7 @@ module.exports = function(grunt, target) {
             if (!options.debug) { 
               finished();
             } else {
-              var message = "" + data
+              var message = "" + data;
               var regex = new RegExp('debugger listening', "gi");
               if (!message.match(regex)) {
                 finished();
