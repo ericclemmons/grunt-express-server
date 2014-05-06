@@ -96,7 +96,9 @@ module.exports = function(grunt, target) {
             }
           });
         }
-
+        server.stderr.on('data', function(data) {
+              finished();
+          });
         server.stdout.pipe(process.stdout);
         server.stderr.pipe(process.stderr);
       } else {
