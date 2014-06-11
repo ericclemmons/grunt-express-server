@@ -28,7 +28,7 @@ module.exports = function(grunt) {
       node_env:      undefined,
       background:    true,
       fallback:      function() { /* Prevent EADDRINUSE from breaking Grunt */ },
-      port:          3000,
+      port:          process.env.PORT || 3000,
       delay:         0,
       output:        ".+",
       debug:         false
