@@ -70,7 +70,7 @@ or within each individual server task.
       // Will turn into: `node OPT1 OPT2 ... OPTN path/to/server.js ARG1 ARG2 ... ARGN`
       // (e.g. opts: ['node_modules/coffee-script/bin/coffee'] will correctly parse coffee-script)
       opts: [ ],
-      args: [ ],    
+      args: [ ],
 
       // Setting to `false` will effectively just run `node path/to/server.js`
       background: true,
@@ -143,6 +143,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.4.18 – Fix for when running the node debugger ([#57](https://github.com/ericclemmons/grunt-express-server/pull/57))
 - v0.4.17 – Update `devDependencies`...again
 - v0.4.16 – Update `devDependencies`
 - v0.4.15 – Recommend using local `coffee` with additional arguments ([#50](https://github.com/ericclemmons/grunt-express-server/pull/50))
