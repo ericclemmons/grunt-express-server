@@ -96,7 +96,17 @@ module.exports = function(grunt, target) {
             }
           });
         }
-
+        server.stderr.on('data', function(data) {
+            if (!options.debug) { 
+              finished();
+            } else {
+              var message = "" + data;
+              var regex = new RegExp('debugger listening', "gi");
+              if (!message.match(regex)) {
+                finished();
+              }
+            }
+          });
         server.stdout.pipe(process.stdout);
         server.stderr.pipe(process.stderr);
       } else {
