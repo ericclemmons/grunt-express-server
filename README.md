@@ -93,6 +93,10 @@ or within each individual server task.
 
       // Set --debug
       debug: false
+
+      // Object with properties `out` and `err` both will take a path to a log file and  
+      // append the output of the server. Make sure the folders exist.
+      logs: undefined
     }
   }
 ```
