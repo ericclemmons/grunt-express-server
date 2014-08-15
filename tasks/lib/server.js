@@ -75,12 +75,16 @@ module.exports = function(grunt, target) {
       }
 
       if (options.background) {
+        var errtype = process.stderr;
+        if(options.logs && options.logs.err) {
+          errtype = 'pipe';
+        }
         server = process._servers[target] = spawn(
           options.cmd,
           options.opts.concat(options.args),
           {
             env:      process.env,
-            stdio: ['ignore', 'pipe', process.stderr]
+            stdio: ['ignore', 'pipe', errtype]
           }
         );
 
@@ -97,7 +101,17 @@ module.exports = function(grunt, target) {
             }
           });
         }
-        server.stdout.pipe(process.stdout);
+        var out = process.stdout;
+        if(options.logs) {
+          var fs = require('fs'), path = require('path');
+          if(options.logs.out) {
+            out = fs.createWriteStream(path.resolve(options.logs.out), {flags: 'a'});
+          }
+          if(options.logs.err && errtype === 'pipe') {
+            server.stderr.pipe(fs.createWriteStream(path.resolve(options.logs.err), {flags: 'a'}));
+          }
+        }
+        server.stdout.pipe(out);
         server.on('close',this.stop);
       } else {
         // Server is ran in current process
