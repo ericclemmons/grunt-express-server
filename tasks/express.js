@@ -31,7 +31,8 @@ module.exports = function(grunt) {
       port:          process.env.PORT || 3000,
       delay:         0,
       output:        ".+",
-      debug:         false
+      debug:         false,
+      logs:          undefined 
     });
 
     options.script = path.resolve(options.script);
