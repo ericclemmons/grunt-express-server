@@ -17,6 +17,7 @@ module.exports = function(grunt) {
         'Gruntfile.js',
         'tasks/**/*.js',
         'test/*.js',
+        '!test/server_malformed.js'
       ],
       options: {
         jshintrc: '.jshintrc',
@@ -80,8 +81,13 @@ module.exports = function(grunt) {
       custom_cmd: {
         options: {
           script: './test/server.coffee',
-          cmd: "coffee",
+          opts: ["node_modules/coffee-script/bin/coffee"],
           output: "Express server listening on port .+"
+        }
+      },
+      malformed: {
+        options: {
+          script: './test/server_malformed.js'
         }
       },
       custom_args: {
@@ -146,19 +152,39 @@ module.exports = function(grunt) {
   // plugin's task(s), then test the result.
   grunt.registerTask('test', [
     'clean',
-    'express:defaults',         'nodeunit:defaults',        'express:defaults:stop',
-    'express:custom_cmd',       'nodeunit:custom_cmd',      'express:custom_cmd:stop',
-    'express:custom_args',      'nodeunit:custom_args',     'express:custom_args:stop',
-    'express:custom_port',      'nodeunit:custom_port',     'express:custom_port:stop',
-    'express:custom_node_env',  'nodeunit:custom_node_env', 'express:custom_node_env:stop',
-    'express:custom_delay',     'nodeunit:custom_delay',    'express:custom_delay:stop',
-    'express:custom_output',    'nodeunit:custom_output',   'express:custom_output:stop',
-    'express:stoppable',        'express:stoppable:stop',   'nodeunit:stoppable',
+    'nodeunit:defaults',
+    'express:defaults',                 
+    'express:defaults:stop',
+    'express:malformed',
+    'express:custom_cmd',       
+    'nodeunit:custom_cmd',      
+    'express:custom_cmd:stop',
+    'express:custom_args',      
+    'nodeunit:custom_args',     
+    'express:custom_args:stop',
+    'express:custom_port',      
+    'nodeunit:custom_port',     
+    'express:custom_port:stop',
+    'express:custom_node_env',  
+    'nodeunit:custom_node_env', 
+    'express:custom_node_env:stop',
+    'express:custom_delay',     
+    'nodeunit:custom_delay',    
+    'express:custom_delay:stop',
+    'express:custom_output',    
+    'nodeunit:custom_output',   
+    'express:custom_output:stop',
+    'express:stoppable',        
+    'express:stoppable:stop',   
+    'nodeunit:stoppable',
 
     // Multiple servers
-    'express:custom_port',      'express:defaults',
-    'nodeunit:defaults',        'nodeunit:custom_port',
-    'express:custom_port:stop', 'express:defaults:stop',
+    'express:custom_port',      
+    'nodeunit:defaults', 
+    'express:defaults',       
+    'nodeunit:custom_port',
+    'express:custom_port:stop', 
+    'express:defaults:stop',
   ]);
 
   // By default, lint and run all tests.
