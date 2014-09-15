@@ -94,7 +94,7 @@ or within each individual server task.
       // Set --debug
       debug: false,
 
-      // Set --debug-brk
+      // Set --debug-brk (requires debug to be true)
       breakOnFirstLine: false,
 
       // Object with properties `out` and `err` both will take a path to a log file and  
