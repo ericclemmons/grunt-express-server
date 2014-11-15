@@ -103,9 +103,26 @@ By default, unless `delay` or `output` has been customized,
 **the server is considered "running" once any output is logged to the console**,
 upon which control is passed back to grunt.
 
-Typically, this is normally:
+Typically, this is:
 
 > Express server listening on port 3000
+
+If your server doesn't log anything, the express task will never finish and **none** of the following tasks, after it, will be executed. For example - if you have a development task like this one:
+
+```javascript
+grunt.registerTask('rebuild', ['clean', 'browserify:scripts', 'stylus', 'copy:images']);
+grunt.registerTask('dev', ['rebuild', 'express', 'watch']);
+```
+
+If you run the dev task and your server doesn't log anything, **'watch' will never be started**.
+
+This can easily be avoided, if you log something, when server is created like that:
+
+```javascript
+var server = http.createServer( app ).listen( PORT, function() {
+    console.log('Express server listening on port ' + PORT);
+} );
+```
 
 If you log output *before* the server is running, either set `delay` or `output` to indicate
 when the server has officially started.
