@@ -7,6 +7,7 @@
  */
 
 'use strict';
+var spawn = require('child_process').spawn;
 
 module.exports = function(grunt, target) {
   if (!process._servers) {
@@ -24,7 +25,6 @@ module.exports = function(grunt, target) {
       done = null;
     }
   };
-
   return {
     start: function start(options) {
       if (server) {
@@ -75,13 +75,18 @@ module.exports = function(grunt, target) {
       }
 
       if (options.background) {
-        var donefunc = (options.delay || options.output) ?  function() {} : finished;
-        server = process._servers[target] = grunt.util.spawn({
-          cmd:      options.cmd,
-          args:     options.opts.concat(options.args),
-          env:      process.env,
-          fallback: options.fallback
-        }, donefunc);
+        var errtype = process.stderr;
+        if(options.logs && options.logs.err) {
+          errtype = 'pipe';
+        }
+        server = process._servers[target] = spawn(
+          options.cmd,
+          options.opts.concat(options.args),
+          {
+            env:      process.env,
+            stdio: ['ignore', 'pipe', errtype]
+          }
+        );
 
         if (options.delay) {
           setTimeout(finished, options.delay);
@@ -96,32 +101,29 @@ module.exports = function(grunt, target) {
             }
           });
         }
-        server.stderr.on('data', function(data) {
-            if (!options.debug) { 
-              finished();
-            } else {
-              var message = "" + data;
-              var regex = new RegExp('debugger listening', "gi");
-              if (!message.match(regex)) {
-                finished();
-              }
-            }
-          });
-        server.stdout.pipe(process.stdout);
-        server.stderr.pipe(process.stderr);
+        var out = process.stdout;
+        if(options.logs) {
+          var fs = require('fs'), path = require('path');
+          if(options.logs.out) {
+            out = fs.createWriteStream(path.resolve(options.logs.out), {flags: 'a'});
+          }
+          if(options.logs.err && errtype === 'pipe') {
+            server.stderr.pipe(fs.createWriteStream(path.resolve(options.logs.err), {flags: 'a'}));
+          }
+        }
+        server.stdout.pipe(out);
+        server.on('close',this.stop);
       } else {
         // Server is ran in current process
         server = process._servers[target] = require(options.script);
       }
-
-      process.on('exit', finished);
       process.on('exit', this.stop);
     },
 
     stop: function stop() {
       if (server && server.kill) {
         grunt.log.writeln('Stopping'.red + ' Express server');
-
+        server.removeAllListeners('close');
         server.kill('SIGTERM');
         process.removeListener('exit', finished);
         process.removeListener('exit', stop);
