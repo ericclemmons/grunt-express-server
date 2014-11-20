@@ -70,6 +70,8 @@ module.exports = function(grunt, target) {
       if (options.debug) {
         if (options.breakOnFirstLine) {
           options.opts.unshift('--debug-brk');
+        } else if(!isNaN(parseInt(options.debug, 10))) {
+          options.opts.unshift('--debug=' + options.debug);
         } else {
           options.opts.unshift('--debug');
         }
