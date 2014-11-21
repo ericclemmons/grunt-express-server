@@ -162,6 +162,34 @@ grunt.initConfig({
 grunt.registerTask('server', [ 'express:dev', 'watch' ])
 ```
 
+**Important:** Note that the `spawn: false` options only need be applied to the watch target regarding the express task.
+You may have other watch targets that use `spawn: true`, which is useful, for example, to reload CSS and not LESS changes.
+
+```js
+watch: {
+  options: {
+    livereload: true
+  },
+  express: {
+    files:  [ '**/*.js' ],
+    tasks:  [ 'express:dev' ],
+    options: {
+      spawn: false
+    }
+  },
+  less: {
+    files: ["public/**/*.less"],
+    tasks: ["less"],
+    options: {
+      livereload: false
+    }
+  },
+  public: {
+    files: ["public/**/*.css", "public/**/*.js"]
+  }
+}
+```
+
 ## Contributing
 
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
