@@ -91,10 +91,10 @@ or within each individual server task.
       // Regular expression that matches server output to indicate it is "running"
       output: ".+",
 
-      // Set --debug
+      // Set --debug (true | false | integer from 1024 to 65535, has precedence over breakOnFirstLine)
       debug: false,
 
-      // Set --debug-brk (requires debug to be true)
+      // Set --debug-brk (true | false | integer from 1024 to 65535)
       breakOnFirstLine: false,
 
       // Object with properties `out` and `err` both will take a path to a log file and  
