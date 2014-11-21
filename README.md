@@ -196,6 +196,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.5.0 - Add breakOnFirstLine option, support for debug ports and fix bugs. Details: ([#68](https://github.com/ericclemmons/grunt-express-server/pull/68), [#70](https://github.com/ericclemmons/grunt-express-server/pull/70), [#73](https://github.com/ericclemmons/grunt-express-server/pull/73))
 - v0.4.19 – Use `process.env.PORT` before `3000` ([#59](https://github.com/ericclemmons/grunt-express-server/pull/59))
 - v0.4.18 – Fix for when running the node debugger ([#57](https://github.com/ericclemmons/grunt-express-server/pull/57))
 - v0.4.17 – Update `devDependencies`...again
