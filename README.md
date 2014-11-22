@@ -91,8 +91,16 @@ or within each individual server task.
       // Regular expression that matches server output to indicate it is "running"
       output: ".+",
 
-      // Set --debug
-      debug: false
+      // Set --debug (true | false | integer from 1024 to 65535, has precedence over breakOnFirstLine)
+      debug: false,
+
+      // Set --debug-brk (true | false | integer from 1024 to 65535)
+      breakOnFirstLine: false,
+
+      // Object with properties `out` and `err` both will take a path to a log file and  
+      // append the output of the server. Make sure the folders exist.
+      logs: undefined
+
     }
   }
 ```
@@ -154,12 +162,41 @@ grunt.initConfig({
 grunt.registerTask('server', [ 'express:dev', 'watch' ])
 ```
 
+**Important:** Note that the `spawn: false` options only need be applied to the watch target regarding the express task.
+You may have other watch targets that use `spawn: true`, which is useful, for example, to reload CSS and not LESS changes.
+
+```js
+watch: {
+  options: {
+    livereload: true
+  },
+  express: {
+    files:  [ '**/*.js' ],
+    tasks:  [ 'express:dev' ],
+    options: {
+      spawn: false
+    }
+  },
+  less: {
+    files: ["public/**/*.less"],
+    tasks: ["less"],
+    options: {
+      livereload: false
+    }
+  },
+  public: {
+    files: ["public/**/*.css", "public/**/*.js"]
+  }
+}
+```
+
 ## Contributing
 
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 
+- v0.5.0 - Add breakOnFirstLine option, support for debug ports and fix bugs. Details: ([#68](https://github.com/ericclemmons/grunt-express-server/pull/68), [#70](https://github.com/ericclemmons/grunt-express-server/pull/70), [#73](https://github.com/ericclemmons/grunt-express-server/pull/73))
 - v0.4.19 – Use `process.env.PORT` before `3000` ([#59](https://github.com/ericclemmons/grunt-express-server/pull/59))
 - v0.4.18 – Fix for when running the node debugger ([#57](https://github.com/ericclemmons/grunt-express-server/pull/57))
 - v0.4.17 – Update `devDependencies`...again

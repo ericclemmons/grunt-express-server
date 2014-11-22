@@ -22,16 +22,18 @@ module.exports = function(grunt) {
     var server  = servers[this.target];
     var action  = this.args.shift() || 'start';
     var options = this.options({
-      cmd:           process.argv[0],
-      opts:          [ ],
-      args:          [ ],
-      node_env:      undefined,
-      background:    true,
-      fallback:      function() { /* Prevent EADDRINUSE from breaking Grunt */ },
-      port:          process.env.PORT || 3000,
-      delay:         0,
-      output:        ".+",
-      debug:         false
+      cmd:              process.argv[0],
+      opts:             [ ],
+      args:             [ ],
+      node_env:         undefined,
+      background:       true,
+      fallback:         function() { /* Prevent EADDRINUSE from breaking Grunt */ },
+      port:             process.env.PORT || 3000,
+      delay:            0,
+      output:           ".+",
+      debug:            false,
+      breakOnFirstLine: false,
+      logs:             undefined
     });
 
     options.script = path.resolve(options.script);

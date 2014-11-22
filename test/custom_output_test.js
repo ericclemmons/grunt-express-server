@@ -16,7 +16,7 @@ module.exports.custom_output = {
 
     get('http://localhost:3000/hello.txt', function(res, body) {
       test.equal(res.statusCode, 200, 'should return 200');
-      test.equal(body, 'Howdy!\n', 'should return static page');
+      test.equal(body.trim(), 'Howdy!', 'should return static page');
       test.done();
     }, function(err) {
       test.done();
