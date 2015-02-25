@@ -84,6 +84,12 @@ or within each individual server task.
       // Override node env's NODE_ENV
       node_env: undefined,
 
+      // Add variables to process.env
+      // (e.g. env: { DATABASE_URI: "http://..." } will appear as process.env.DATABASE_URI)
+      // PORT and NODE_ENV defined in this object will override options.port and options.node_env
+      env: {
+      },
+
       // Consider the server to be "running" after an explicit delay (in milliseconds)
       // (e.g. when server has no initial output)
       delay: 0,

@@ -60,6 +60,10 @@ module.exports = function(grunt, target) {
         process.env.NODE_ENV = options.node_env;
       }
 
+      Object.keys(options.env).forEach(function(key) {
+        process.env[key] = options.env[key];
+      });
+
       if (options.cmd === 'coffee') {
         grunt.log.writeln('You are using cmd: coffee'.red);
         grunt.log.writeln('coffee does not allow a restart of the server'.red);
