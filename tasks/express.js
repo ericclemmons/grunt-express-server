@@ -25,6 +25,7 @@ module.exports = function(grunt) {
       cmd:              process.argv[0],
       opts:             [ ],
       args:             [ ],
+      env:              { },
       node_env:         undefined,
       background:       true,
       fallback:         function() { /* Prevent EADDRINUSE from breaking Grunt */ },
