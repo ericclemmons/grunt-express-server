@@ -69,7 +69,8 @@ module.exports = function(grunt, target) {
       // Set debug mode for node-inspector
       // Based on https://github.com/joyent/node/blob/master/src/node.cc#L2903
       if (options.debug === true) {
-        options.opts.unshift('--debug');
+        var arg = options.debug === true ? '--debug' : '--debug=' + options.debug;
+        options.opts.unshift(arg);
       } else if (!isNaN(parseInt(options.debug, 10))) {
         options.opts.unshift('--debug=' + options.debug);
       } else if (options.breakOnFirstLine === true) {
