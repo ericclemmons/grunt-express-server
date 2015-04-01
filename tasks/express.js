@@ -26,6 +26,7 @@ module.exports = function(grunt) {
       opts:             [ ],
       args:             [ ],
       node_env:         undefined,
+      harmony:          false,
       background:       true,
       fallback:         function() { /* Prevent EADDRINUSE from breaking Grunt */ },
       port:             process.env.PORT || 3000,
@@ -39,6 +40,10 @@ module.exports = function(grunt) {
     options.script = path.resolve(options.script);
 
     options.args.unshift(options.script);
+
+    if (options.harmony) {
+      options.args.unshift('--harmony');
+    }
 
     if (!grunt.file.exists(options.script)) {
       grunt.log.error('Could not find server script: ' + options.script);
