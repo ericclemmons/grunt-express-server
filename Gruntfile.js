@@ -52,6 +52,9 @@ module.exports = function(grunt) {
       custom_cmd: {
         src: 'test/custom_cmd_test.js'
       },
+      custom_harmony: {
+        src: 'test/custom_harmony.js'
+      },
       custom_args: {
         src: 'test/custom_args_test.js'
       },
@@ -88,6 +91,12 @@ module.exports = function(grunt) {
       malformed: {
         options: {
           script: './test/server_malformed.js'
+        }
+      },
+      custom_harmony: {
+        options: {
+          harmony: true,
+          output: "Express server listening on port .+"
         }
       },
       custom_args: {
@@ -153,37 +162,40 @@ module.exports = function(grunt) {
   grunt.registerTask('test', [
     'clean',
     'nodeunit:defaults',
-    'express:defaults',                 
+    'express:defaults',
     'express:defaults:stop',
     'express:malformed',
-    'express:custom_cmd',       
-    'nodeunit:custom_cmd',      
+    'express:custom_cmd',
+    'nodeunit:custom_cmd',
     'express:custom_cmd:stop',
-    'express:custom_args',      
-    'nodeunit:custom_args',     
+    'express:custom_args',
+    'nodeunit:custom_args',
     'express:custom_args:stop',
-    'express:custom_port',      
-    'nodeunit:custom_port',     
+    'express:custom_harmony',
+    'nodeunit:custom_harmony',
+    'express:custom_harmony:stop',
+    'express:custom_port',
+    'nodeunit:custom_port',
     'express:custom_port:stop',
-    'express:custom_node_env',  
-    'nodeunit:custom_node_env', 
+    'express:custom_node_env',
+    'nodeunit:custom_node_env',
     'express:custom_node_env:stop',
-    'express:custom_delay',     
-    'nodeunit:custom_delay',    
+    'express:custom_delay',
+    'nodeunit:custom_delay',
     'express:custom_delay:stop',
-    'express:custom_output',    
-    'nodeunit:custom_output',   
+    'express:custom_output',
+    'nodeunit:custom_output',
     'express:custom_output:stop',
-    'express:stoppable',        
-    'express:stoppable:stop',   
+    'express:stoppable',
+    'express:stoppable:stop',
     'nodeunit:stoppable',
 
     // Multiple servers
-    'express:custom_port',      
-    'nodeunit:defaults', 
-    'express:defaults',       
+    'express:custom_port',
+    'nodeunit:defaults',
+    'express:defaults',
     'nodeunit:custom_port',
-    'express:custom_port:stop', 
+    'express:custom_port:stop',
     'express:defaults:stop',
   ]);
 

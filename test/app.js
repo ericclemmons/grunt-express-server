@@ -13,6 +13,10 @@ app.get('/env', function(req, res) {
   res.send('Howdy from ' + app.get('env') + '!');
 });
 
+app.get('/harmony', function(req, res) {
+  res.send('Harmony flag idx is ' + process.execArgv.indexOf('--harmony'));
+});
+
 // Setup simple echo for each additional argument passed for testing
 args.slice(2).forEach(function(arg) {
   app.get('/' + arg, function(req, res) {
