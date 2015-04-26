@@ -67,10 +67,11 @@ or within each individual server task.
       //  see below at opts for coffee-script support)
       cmd: process.argv[0],
 
-      // Will turn into: `node OPT1 OPT2 ... OPTN path/to/server.js ARG1 ARG2 ... ARGN`
+      // Will turn into: `ENV1=value1 node OPT1 OPT2 ... OPTN path/to/server.js ARG1 ARG2 ... ARGN`
       // (e.g. opts: ['node_modules/coffee-script/bin/coffee'] will correctly parse coffee-script)
       opts: [ ],
       args: [ ],
+      envs: { },
 
       // Setting to `false` will effectively just run `node path/to/server.js`
       background: true,
@@ -100,7 +101,7 @@ or within each individual server task.
       // Set --debug-brk (true | false | integer from 1024 to 65535)
       breakOnFirstLine: false,
 
-      // Object with properties `out` and `err` both will take a path to a log file and  
+      // Object with properties `out` and `err` both will take a path to a log file and
       // append the output of the server. Make sure the folders exist.
       logs: undefined
 

@@ -58,6 +58,9 @@ module.exports = function(grunt) {
       custom_args: {
         src: 'test/custom_args_test.js'
       },
+      custom_envs: {
+        src: 'test/custom_envs_test.js'
+      },
       custom_port: {
         src: 'test/custom_port_test.js'
       },
@@ -102,6 +105,14 @@ module.exports = function(grunt) {
       custom_args: {
         options: {
           args: [1, 2],
+          output: "Express server listening on port .+"
+        }
+      },
+      custom_envs: {
+        options: {
+          envs: {
+            env1: 'value1'
+          },
           output: "Express server listening on port .+"
         }
       },
@@ -171,6 +182,9 @@ module.exports = function(grunt) {
     'express:custom_args',
     'nodeunit:custom_args',
     'express:custom_args:stop',
+    'express:custom_envs',
+    'nodeunit:custom_envs',
+    'express:custom_envs:stop',
     'express:custom_harmony',
     'nodeunit:custom_harmony',
     'express:custom_harmony:stop',

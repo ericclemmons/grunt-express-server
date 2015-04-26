@@ -3,6 +3,7 @@
 var express = require('express');
 var app     = module.exports = express();
 var args    = process.argv;
+var envs    = process.env;
 var env     = process.env.NODE_ENV || 'development';
 
 app.set('port', process.env.PORT || 3000);
@@ -21,5 +22,11 @@ app.get('/harmony', function(req, res) {
 args.slice(2).forEach(function(arg) {
   app.get('/' + arg, function(req, res) {
     res.send('Howdy ' + arg + ' from ' + app.get('env') + '!');
+  });
+});
+
+Object.keys(envs).forEach (function(key) {
+  app.get('/' + key, function(req, res) {
+    res.send('Howdy ' + key + '=' + envs[key] + ' from ' + app.get('env') + '!');
   });
 });
