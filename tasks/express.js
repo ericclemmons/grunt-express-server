@@ -34,7 +34,8 @@ module.exports = function(grunt) {
       output:           ".+",
       debug:            false,
       breakOnFirstLine: false,
-      logs:             undefined
+      logs:             undefined,
+      hardStop:         false
     });
 
     options.script = path.resolve(options.script);
