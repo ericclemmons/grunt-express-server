@@ -132,7 +132,7 @@ module.exports = function(grunt, target) {
       if (server && server.kill) {
         grunt.log.writeln('Stopping'.red + ' Express server');
         server.removeAllListeners('close');
-        server.kill('SIGTERM');
+        server.kill('SIGKILL');
         process.removeListener('exit', finished);
         process.removeListener('exit', stop);
         server = process._servers[target] = null;
