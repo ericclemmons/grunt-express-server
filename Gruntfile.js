@@ -64,6 +64,9 @@ module.exports = function(grunt) {
       custom_node_env: {
         src: 'test/custom_node_env_test.js'
       },
+      custom_node_path: {
+        src: 'test/custom_node_path_test.js'
+      },
       custom_delay: {
         src: 'test/custom_delay_test.js'
       },
@@ -119,6 +122,12 @@ module.exports = function(grunt) {
       custom_node_env: {
         options: {
           node_env: "production",
+          output: "Express server listening on port .+"
+        }
+      },
+      custom_node_path: {
+        options: {
+          node_path: "shared",
           output: "Express server listening on port .+"
         }
       },
@@ -180,6 +189,9 @@ module.exports = function(grunt) {
     'express:custom_node_env',
     'nodeunit:custom_node_env',
     'express:custom_node_env:stop',
+    'express:custom_node_path',
+    'nodeunit:custom_node_path',
+    'express:custom_node_path:stop',
     'express:custom_delay',
     'nodeunit:custom_delay',
     'express:custom_delay:stop',

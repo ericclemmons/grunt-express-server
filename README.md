@@ -84,6 +84,9 @@ or within each individual server task.
       // Override node env's NODE_ENV
       node_env: undefined,
 
+      // Override node env's NODE_PATH
+      node_path: undefined,
+
       // Enable Node's --harmony flag
       harmony: false,
 
@@ -199,6 +202,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.5.1 - Add `node_path` option that sets `NODE_PATH`.
 - v0.5.1 - Add `harmony` flag ([#86](https://github.com/ericclemmons/grunt-express-server/pull/86))
 - v0.5.0 - Add breakOnFirstLine option, support for debug ports and fix bugs. Details: ([#68](https://github.com/ericclemmons/grunt-express-server/pull/68), [#70](https://github.com/ericclemmons/grunt-express-server/pull/70), [#73](https://github.com/ericclemmons/grunt-express-server/pull/73))
 - v0.4.19 – Use `process.env.PORT` before `3000` ([#59](https://github.com/ericclemmons/grunt-express-server/pull/59))
@@ -232,4 +236,3 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ericclemmons/grunt-express-server/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-

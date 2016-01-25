@@ -60,6 +60,16 @@ module.exports = function(grunt, target) {
         process.env.NODE_ENV = options.node_env;
       }
 
+      // Set NODE_PATH for new processes
+      if (options.node_path) {
+        process.env.NODE_PATH = options.node_path;
+      }
+
+      // Set NODE_CONFIG_DIR for new processes
+      if (options.node_config_dir) {
+        process.env.NODE_CONFIG_DIR = options.node_config_dir;
+      }
+
       if (options.cmd === 'coffee') {
         grunt.log.writeln('You are using cmd: coffee'.red);
         grunt.log.writeln('coffee does not allow a restart of the server'.red);

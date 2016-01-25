@@ -13,6 +13,10 @@ app.get('/env', function(req, res) {
   res.send('Howdy from ' + app.get('env') + '!');
 });
 
+app.get('/path', function(req, res) {
+  res.send('Your NODE_PATH is "' + process.env.NODE_PATH + '".');
+});
+
 app.get('/harmony', function(req, res) {
   res.send('Harmony flag idx is ' + process.execArgv.indexOf('--harmony'));
 });

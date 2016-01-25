@@ -35,6 +35,17 @@ module.exports.custom_args = {
     });
   },
 
+  test_run_default_node_path: function(test) {
+    test.expect(2);
+    get('http://localhost:3000/path', function(res, body) {
+      test.equal(res.statusCode, 200, 'should return 200');
+      test.equal(body, 'Your NODE_PATH is "undefined".', 'should return NODE_PATH = "undefined"');
+      test.done();
+    }, function(err) {
+      test.done();
+    });
+  },
+
   test_runs_in_development: function(test) {
     test.expect(2);
 
