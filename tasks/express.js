@@ -27,6 +27,7 @@ module.exports = function(grunt) {
       args:             [ ],
       node_env:         undefined,
       node_path:        undefined,
+      node_config_dir   undefined,
       harmony:          false,
       background:       true,
       fallback:         function() { /* Prevent EADDRINUSE from breaking Grunt */ },
