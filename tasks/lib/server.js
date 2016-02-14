@@ -28,7 +28,7 @@ module.exports = function(grunt, target) {
   return {
     start: function start(options) {
       if (server) {
-        this.stop();
+        this.stop(options);
 
         if (grunt.task.current.flags.stop) {
           finished();
@@ -128,11 +128,16 @@ module.exports = function(grunt, target) {
       process.on('exit', this.stop);
     },
 
-    stop: function stop() {
+    stop: function stop(options) {
       if (server && server.kill) {
         grunt.log.writeln('Stopping'.red + ' Express server');
         server.removeAllListeners('close');
-        server.kill('SIGTERM');
+        if (options.hardStop) {
+          grunt.log.writeln('Using ' + 'SIGKILL'.red);
+          server.kill('SIGKILL');
+        } else {
+          server.kill('SIGTERM');
+        }
         process.removeListener('exit', finished);
         process.removeListener('exit', stop);
         server = process._servers[target] = null;
