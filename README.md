@@ -100,7 +100,7 @@ or within each individual server task.
       // Set --debug-brk (true | false | integer from 1024 to 65535)
       breakOnFirstLine: false,
 
-      // Object with properties `out` and `err` both will take a path to a log file and  
+      // Object with properties `out` and `err` both will take a path to a log file and
       // append the output of the server. Make sure the folders exist.
       logs: undefined
 
@@ -199,6 +199,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.5.2 - Add `hardStop` flag ([#99](https://github.com/ericclemmons/grunt-express-server/pull/99))
 - v0.5.1 - Add `harmony` flag ([#86](https://github.com/ericclemmons/grunt-express-server/pull/86))
 - v0.5.0 - Add breakOnFirstLine option, support for debug ports and fix bugs. Details: ([#68](https://github.com/ericclemmons/grunt-express-server/pull/68), [#70](https://github.com/ericclemmons/grunt-express-server/pull/70), [#73](https://github.com/ericclemmons/grunt-express-server/pull/73))
 - v0.4.19 – Use `process.env.PORT` before `3000` ([#59](https://github.com/ericclemmons/grunt-express-server/pull/59))
@@ -232,4 +233,3 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ericclemmons/grunt-express-server/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
