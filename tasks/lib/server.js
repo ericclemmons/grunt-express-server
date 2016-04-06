@@ -132,7 +132,7 @@ module.exports = function(grunt, target) {
       if (server && server.kill) {
         grunt.log.writeln('Stopping'.red + ' Express server');
         server.removeAllListeners('close');
-        if (options.hardStop) {
+        if (options && options.hardStop) {
           grunt.log.writeln('Using ' + 'SIGKILL'.red);
           server.kill('SIGKILL');
         } else {
