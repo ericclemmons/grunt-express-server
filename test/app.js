@@ -17,6 +17,10 @@ app.get('/harmony', function(req, res) {
   res.send('Harmony flag idx is ' + process.execArgv.indexOf('--harmony'));
 });
 
+app.get('/harmony_proxies', function(req, res) {
+  res.send('Harmony-proxies flag idx is ' + process.execArgv.indexOf('--harmony-proxies'));
+});
+
 // Setup simple echo for each additional argument passed for testing
 args.slice(2).forEach(function(arg) {
   app.get('/' + arg, function(req, res) {

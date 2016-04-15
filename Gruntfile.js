@@ -55,6 +55,9 @@ module.exports = function(grunt) {
       custom_harmony: {
         src: 'test/custom_harmony.js'
       },
+      custom_harmony_proxies: {
+        src: 'test/custom_harmony_proxies.js'
+      },
       custom_args: {
         src: 'test/custom_args_test.js'
       },
@@ -96,6 +99,12 @@ module.exports = function(grunt) {
       custom_harmony: {
         options: {
           harmony: true,
+          output: "Express server listening on port .+"
+        }
+      },
+      custom_harmony_proxies: {
+        options: {
+          harmony_proxies: true,
           output: "Express server listening on port .+"
         }
       },
@@ -174,6 +183,9 @@ module.exports = function(grunt) {
     'express:custom_harmony',
     'nodeunit:custom_harmony',
     'express:custom_harmony:stop',
+    'express:custom_harmony_proxies',
+    'nodeunit:custom_harmony_proxies',
+    'express:custom_harmony_proxies:stop',
     'express:custom_port',
     'nodeunit:custom_port',
     'express:custom_port:stop',
