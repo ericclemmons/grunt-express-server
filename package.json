@@ -2,14 +2,14 @@
   "name": "grunt-express-server",
   "description": "Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde",
   "version": "0.5.2",
-  "homepage": "https://github.com/ericclemmons/grunt-express-server",
+  "homepage": "https://github.com/smurp/grunt-express-server",
   "author": {
     "name": "Eric Clemmons",
     "email": "eric@smarterspam.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/ericclemmons/grunt-express-server.git"
+    "url": "git://github.com/smurp/grunt-express-server.git"
   },
   "bugs": {
     "url": "https://github.com/ericclemmons/grunt-express-server/issues"
