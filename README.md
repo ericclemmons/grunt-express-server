@@ -87,6 +87,9 @@ or within each individual server task.
       // Enable Node's --harmony flag
       harmony: false,
 
+      // Enable Node's --harmony-proxies flag
+      harmony_proxies: false,
+
       // Consider the server to be "running" after an explicit delay (in milliseconds)
       // (e.g. when server has no initial output)
       delay: 0,

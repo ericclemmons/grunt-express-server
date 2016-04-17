@@ -27,6 +27,7 @@ module.exports = function(grunt) {
       args:             [ ],
       node_env:         undefined,
       harmony:          false,
+      harmony_proxies:  false,
       background:       true,
       fallback:         function() { /* Prevent EADDRINUSE from breaking Grunt */ },
       port:             process.env.PORT || 3000,
@@ -44,6 +45,9 @@ module.exports = function(grunt) {
 
     if (options.harmony) {
       options.args.unshift('--harmony');
+    }
+    if (options.harmony_proxies) {
+      options.args.unshift('--harmony-proxies');
     }
 
     if (!grunt.file.exists(options.script)) {
