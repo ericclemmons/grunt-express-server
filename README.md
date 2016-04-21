@@ -199,6 +199,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+- v0.5.3 - Update peerDeps and enable travis build against Node 4
 - v0.5.2 - Add `hardStop` flag ([#99](https://github.com/ericclemmons/grunt-express-server/pull/99))
 - v0.5.1 - Add `harmony` flag ([#86](https://github.com/ericclemmons/grunt-express-server/pull/86))
 - v0.5.0 - Add breakOnFirstLine option, support for debug ports and fix bugs. Details: ([#68](https://github.com/ericclemmons/grunt-express-server/pull/68), [#70](https://github.com/ericclemmons/grunt-express-server/pull/70), [#73](https://github.com/ericclemmons/grunt-express-server/pull/73))
