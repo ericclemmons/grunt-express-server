@@ -25,6 +25,7 @@ module.exports = function(grunt) {
       cmd:              process.argv[0],
       opts:             [ ],
       args:             [ ],
+      envs:             { },
       node_env:         undefined,
       harmony:          false,
       background:       true,

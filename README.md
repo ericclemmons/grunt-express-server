@@ -67,10 +67,11 @@ or within each individual server task.
       //  see below at opts for coffee-script support)
       cmd: process.argv[0],
 
-      // Will turn into: `node OPT1 OPT2 ... OPTN path/to/server.js ARG1 ARG2 ... ARGN`
+      // Will turn into: `ENV1=value1 node OPT1 OPT2 ... OPTN path/to/server.js ARG1 ARG2 ... ARGN`
       // (e.g. opts: ['node_modules/coffee-script/bin/coffee'] will correctly parse coffee-script)
       opts: [ ],
       args: [ ],
+      envs: { },
 
       // Setting to `false` will effectively just run `node path/to/server.js`
       background: true,
