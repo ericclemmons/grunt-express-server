@@ -27,6 +27,8 @@ module.exports = function(grunt, target) {
   };
   return {
     start: function start(options) {
+      var i, len, nodejs_args;
+
       if (server) {
         this.stop(options);
 
@@ -80,6 +82,16 @@ module.exports = function(grunt, target) {
 
       if ((options.debug || options.breakOnFirstLine) && options.cmd === 'coffee') {
         options.opts.unshift('--nodejs');
+      }
+
+      nodejs_args = options.nodejs_args;
+
+      // Set any forwarded args to the node executable using the --nodejs option.
+      // E.g. --debug-brk, --expose-gc.
+      if (nodejs_args && nodejs_args.length) {
+        for (i = 0, len = nodejs_args.length; i < len; i++) {
+          options.args.unshift('--nodejs', nodejs_args[i]);
+        }
       }
 
       if (options.background) {
