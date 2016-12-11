@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 
     options.script = path.resolve(options.script);
 
-    options.args.unshift(options.script);
+    options.args.push(options.script);
 
     if (options.harmony) {
       options.args.unshift('--harmony');
