@@ -69,13 +69,13 @@ module.exports = function(grunt, target) {
       // Set debug mode for node-inspector
       // Based on https://github.com/joyent/node/blob/master/src/node.cc#L2903
       if (options.debug === true) {
-        options.opts.unshift('--debug');
+        options.opts.unshift('--inspect');
       } else if (!isNaN(parseInt(options.debug, 10))) {
-        options.opts.unshift('--debug=' + options.debug);
+        options.opts.unshift('--inspect=' + options.debug);
       } else if (options.breakOnFirstLine === true) {
-        options.opts.unshift('--debug-brk');
+        options.opts.unshift('--inspect-brk');
       } else if (!isNaN(parseInt(options.breakOnFirstLine, 10))) {
-        options.opts.unshift('--debug-brk=' + options.breakOnFirstLine);
+        options.opts.unshift('--inspect-brk=' + options.breakOnFirstLine);
       }
 
       if ((options.debug || options.breakOnFirstLine) && options.cmd === 'coffee') {
