@@ -1,5 +1,5 @@
 {
-  "name": "p3x-grunt-express-server",
+  "name": "grunt-p3x-express-server",
   "description": "Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde",
   "version": "1.0.0",
   "homepage": "https://github.com/patrikx3/grunt-express-server",
