@@ -1,5 +1,11 @@
 {
   "name": "grunt-p3x-express",
+  "corifeus": {
+    "prefix": "grunt-p3x-",
+    "publish": true,
+    "type": "p3x",
+    "code": "Express"
+  },
   "description": "Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde",
   "version": "1.0.0",
   "homepage": "https://github.com/patrikx3/grunt-p3x-express",
@@ -29,6 +35,7 @@
     "test": "./node_modules/.bin/grunt"
   },
   "devDependencies": {
+    "corifeus-builder": "^1.7.632-74",
     "express": "^4.0.0",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
