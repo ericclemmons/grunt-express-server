@@ -232,5 +232,3 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
   - Config is set via `express: '...'` instead of `server: { script: '...' } `
 - v0.1.0 - Initial import from [Genesis Skeleton](https://github.com/ericclemmons/genesis-skeleton) & release
 
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ericclemmons/grunt-express-server/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

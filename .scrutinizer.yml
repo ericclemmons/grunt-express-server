@@ -1,0 +1,24 @@
+checks:
+  javascript: true
+filter:
+  excluded_paths:
+    - test/*
+    - node_modules/*
+    - build/*
+    - docs/*
+
+build:
+  environment:
+    node: 7.8
+
+  dependencies:
+    before:
+      - npm install -g grunt-cli
+
+  tests:
+    override:
+      -
+        command: 'grunt'
+        coverage:
+          file: 'build/coverage/clover.xml'
+          format: 'clover'
