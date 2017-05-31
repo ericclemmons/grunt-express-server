@@ -1,18 +1,24 @@
 {
-  "name": "grunt-express-server",
+  "name": "p3x-grunt-express-server",
   "description": "Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde",
-  "version": "0.5.3",
-  "homepage": "https://github.com/ericclemmons/grunt-express-server",
+  "version": "1.0.0",
+  "homepage": "https://github.com/patrikx3/grunt-express-server",
   "author": {
     "name": "Eric Clemmons",
     "email": "eric@smarterspam.com"
   },
+  "contributors": [
+    {
+      "name": "Patrik Laszlo",
+      "email": "alabard@gmail.com"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/ericclemmons/grunt-express-server.git"
+    "url": "git://github.com/patrikx3/grunt-express-server.git"
   },
   "bugs": {
-    "url": "https://github.com/ericclemmons/grunt-express-server/issues"
+    "url": "https://github.com/patrikx3/grunt-express-server/issues"
   },
   "license": "MIT",
   "main": "Gruntfile.js",
