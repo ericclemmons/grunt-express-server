@@ -7,7 +7,7 @@
     },
     "description": "Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde",
     "version": "1.0.7-153",
-    "homepage": "https://pages.corifeus.tk/grunt-p3x-express",
+    "homepage": "https://pages.corifeus.tk/grunt-express",
     "author": {
         "name": "Eric Clemmons",
         "email": "eric@smarterspam.com"
@@ -20,10 +20,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git://github.com/patrikx3/grunt-p3x-express.git"
+        "url": "git://github.com/patrikx3/grunt-express.git"
     },
     "bugs": {
-        "url": "https://github.com/patrikx3/grunt-p3x-express/issues"
+        "url": "https://github.com/patrikx3/grunt-express/issues"
     },
     "license": "MIT",
     "main": "Gruntfile.js",
