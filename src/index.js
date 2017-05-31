@@ -1,5 +1,4 @@
 module.exports = {
-    express: require('../tasks/express'),
+    express: require('./express'),
 }
-
-module.exports.express.server = require('../tasks/lib/server');
+module.exports.express.server = require('./lib/server');

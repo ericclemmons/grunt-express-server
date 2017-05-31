@@ -235,7 +235,7 @@ https://github.com/ericclemmons/grunt-p3x-express
 [//]: #@corifeus-footer
 
 ---
-[**GRUNT-P3X-EXPRESS**](https://pages.corifeus.tk/grunt-p3x-express) Build v1.0.3-149
+[**GRUNT-P3X-EXPRESS**](https://pages.corifeus.tk/grunt-p3x-express) Build v1.0.7-153
 
 [Corifeus](http://www.corifeus.tk) by [Patrik Laszlo](http://patrikx3.tk)
 
