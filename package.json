@@ -1,55 +1,54 @@
 {
-  "name": "grunt-p3x-express",
-  "corifeus": {
-    "prefix": "grunt-p3x-",
-    "publish": true,
-    "type": "p3x",
-    "code": "Express"
-  },
-  "description": "Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde",
-  "version": "1.0.0",
-  "homepage": "https://github.com/patrikx3/grunt-p3x-express",
-  "author": {
-    "name": "Eric Clemmons",
-    "email": "eric@smarterspam.com"
-  },
-  "contributors": [
-    {
-      "name": "Patrik Laszlo",
-      "email": "alabard@gmail.com"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/patrikx3/grunt-p3x-express.git"
-  },
-  "bugs": {
-    "url": "https://github.com/patrikx3/grunt-p3x-express/issues"
-  },
-  "license": "MIT",
-  "main": "Gruntfile.js",
-  "engines": {
-    "node": ">= 0.10.0"
-  },
-  "scripts": {
-    "test": "./node_modules/.bin/grunt"
-  },
-  "devDependencies": {
-    "corifeus-builder": "^1.7.632-74",
-    "express": "^4.0.0",
-    "grunt": "^1.0.1",
-    "grunt-cli": "^1.2.0",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-nodeunit": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0"
-  },
-  "peerDependencies": {
-    "grunt": ">=0.4.0"
-  },
-  "keywords": [
-    "gruntplugin",
-    "express",
-    "server"
-  ]
+    "name": "grunt-p3x-express",
+    "corifeus": {
+        "publish": true,
+        "type": "p3x",
+        "code": "Express"
+    },
+    "description": "Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde",
+    "version": "1.0.3-149",
+    "homepage": "https://pages.corifeus.tk/grunt-p3x-express",
+    "author": {
+        "name": "Eric Clemmons",
+        "email": "eric@smarterspam.com"
+    },
+    "contributors": [
+        {
+            "name": "Patrik Laszlo",
+            "email": "alabard@gmail.com"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/patrikx3/grunt-p3x-express.git"
+    },
+    "bugs": {
+        "url": "https://github.com/patrikx3/grunt-p3x-express/issues"
+    },
+    "license": "MIT",
+    "main": "Gruntfile.js",
+    "engines": {
+        "node": ">=7.8.0"
+    },
+    "scripts": {
+        "test": "./node_modules/.bin/grunt"
+    },
+    "devDependencies": {
+        "corifeus-builder": "^1.7.632-74",
+        "express": "^4.0.0",
+        "grunt": "^1.0.1",
+        "grunt-cli": "^1.2.0",
+        "grunt-contrib-clean": "^1.0.0",
+        "grunt-contrib-jshint": "^1.0.0",
+        "grunt-contrib-nodeunit": "^1.0.0",
+        "grunt-contrib-watch": "^1.0.0"
+    },
+    "peerDependencies": {
+        "grunt": ">=0.4.0"
+    },
+    "keywords": [
+        "gruntplugin",
+        "express",
+        "server"
+    ]
 }

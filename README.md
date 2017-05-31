@@ -1,14 +1,47 @@
-# grunt-express-server
+[//]: #@corifeus-header
 
-[![Build Status](https://travis-ci.org/ericclemmons/grunt-express-server.png?branch=master)](https://travis-ci.org/ericclemmons/grunt-express-server)
-[![Dependencies](https://david-dm.org/ericclemmons/grunt-express-server.png)](https://david-dm.org/ericclemmons/grunt-express-server)
-[![devDependencies](https://david-dm.org/ericclemmons/grunt-express-server/dev-status.png)](https://david-dm.org/ericclemmons/grunt-express-server#info=devDependencies&view=table)
+  [![Build Status](https://travis-ci.org/patrikx3/grunt-p3x-express.svg?branch=master)](https://travis-ci.org/patrikx3/grunt-p3x-express)  [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/patrikx3/grunt-p3x-express/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/patrikx3/grunt-p3x-express/?branch=master)  [![Code Coverage](https://scrutinizer-ci.com/g/patrikx3/grunt-p3x-express/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/patrikx3/grunt-p3x-express/?branch=master) 
+
+  
+[![NPM](https://nodei.co/npm/grunt-p3x-express.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/grunt-p3x-express/)
+---
+
+ 
+# Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde
+
+## Issues / Support
+This is an open source project. Time is a precious thing, so I have rarely time to give support and fix issues for someone else. I fix a bug, when I have an error that I need. If you got an issue, error or bug, I hope someone will have time to do it for you, otherwise, you are on your own.
+
+Though, if I know the solution, I will tell you. Besides, core errors will be fixed by me.
+
+***If you want to extend, fix bugs or add in new features, I promptly merge pull requests or you can become a ```patrikx3``` member.***
+
+### Node Version Requirement 
+``` 
+>=7.8.0 
+```  
+   
+### Built on Node 
+``` 
+v8.0.0
+```   
+   
+The ```async``` and ```await``` keywords are required.
+
+Install NodeJs:    
+https://nodejs.org/en/download/package-manager/    
+  
+# Description  
+
+                        
+[//]: #@corifeus-header:end
+
 
 > Simple grunt task for running an Express server that works great with LiveReload + Watch/Regarde
 
 ## Getting Started
 
-This plugin requires Grunt `>=0.4.0`
+This plugin requires Grunt `>=1.0.0`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -19,7 +52,7 @@ npm install grunt-express-server --save-dev
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-express-server');
+grunt.loadNpmTasks('grunt-p3x-express');
 ```
 
 ## The `express` task
@@ -193,42 +226,16 @@ watch: {
 }
 ```
 
-## Contributing
-
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
 ## Release History
 
-- v0.5.3 - Update peerDeps and enable travis build against Node 4
-- v0.5.2 - Add `hardStop` flag ([#99](https://github.com/ericclemmons/grunt-express-server/pull/99))
-- v0.5.1 - Add `harmony` flag ([#86](https://github.com/ericclemmons/grunt-express-server/pull/86))
-- v0.5.0 - Add breakOnFirstLine option, support for debug ports and fix bugs. Details: ([#68](https://github.com/ericclemmons/grunt-express-server/pull/68), [#70](https://github.com/ericclemmons/grunt-express-server/pull/70), [#73](https://github.com/ericclemmons/grunt-express-server/pull/73))
-- v0.4.19 – Use `process.env.PORT` before `3000` ([#59](https://github.com/ericclemmons/grunt-express-server/pull/59))
-- v0.4.18 – Fix for when running the node debugger ([#57](https://github.com/ericclemmons/grunt-express-server/pull/57))
-- v0.4.17 – Update `devDependencies`...again
-- v0.4.16 – Update `devDependencies`
-- v0.4.15 – Recommend using local `coffee` with additional arguments ([#50](https://github.com/ericclemmons/grunt-express-server/pull/50))
-- v0.4.14 – Attempt to fix issues running Coffeescript ([#54](https://github.com/ericclemmons/grunt-express-server/pull/54))
-- v0.4.13 – Add `--nodejs` for Coffeescript users ([#37](https://github.com/ericclemmons/grunt-express-server/issues/37))
-- v0.4.12 – Only remove this task's listeners ([#39](https://github.com/ericclemmons/grunt-express-server/pull/39))
-- v0.4.11 – Revert v0.4.10 until Travis can reproduce it
-- v0.4.10 – Another attempt to fix #28 & #30's server restarting issue ([#31](https://github.com/ericclemmons/grunt-express-server/pull/31))
-- v0.4.9 – Revert v0.4.8 until [#30](https://github.com/ericclemmons/grunt-express-server/issues/30#issuecomment-29931192) is resolved
-- v0.4.8 – Fix issue with start/restarting multiple instances ([#29](https://github.com/ericclemmons/grunt-express-server/pull/29))
-- v0.4.7 – Remove broken `error` option ([#27](https://github.com/ericclemmons/grunt-express-server/issues/27))
-- v0.4.6 – Store running servers on `process._servers[target]` ([#22](https://github.com/ericclemmons/grunt-express-server/issues/22))
-- v0.4.5 – Support multiple servers running at once ([#23](https://github.com/ericclemmons/grunt-express-server/pull/23))
-- v0.4.4 - Fix for using `grunt-env` to change environments, thanks to @FredrikAppelros ([#20](https://github.com/ericclemmons/grunt-express-server/pull/20))
-- v0.4.3 - Add `cmd` option that defaults to Node, but can be set to `coffee` for Coffeescript support, thanks to @JonET ([#15](https://github.com/ericclemmons/grunt-express-server/pull/15))
-- v0.4.2 - Add `debug` option that gets enables Node's debugger, ideally for use with [node-inspector](https://github.com/node-inspector/node-inspector)
-- v0.4.1 - Add `node_env` option that sets `NODE_ENV` when running the server & restores original env upon closing, thanks to @jgable!
-- v0.4.0
-  - Add `delay` option that, when set, passes control back to grunt after timeout
-  - Add `output` regular expression option that, when set, waits for matching message before passing control back to grunt
-- v0.3.1 - Try to force notification that `express` task has finished as much as possible
-- v0.3.0 - `express` is now a multitask with customizable options, better error handling and `:stop` task
-- v0.2.0
-  - Change `express-server` task to `express`
-  - Config is set via `express: '...'` instead of `server: { script: '...' } `
-- v0.1.0 - Initial import from [Genesis Skeleton](https://github.com/ericclemmons/genesis-skeleton) & release
+https://github.com/ericclemmons/grunt-express-server
 
+[//]: #@corifeus-footer
+
+---
+[**GRUNT-P3X-EXPRESS**](https://pages.corifeus.tk/grunt-p3x-express) Build v1.0.3-149
+
+[Corifeus](http://www.corifeus.tk) by [Patrik Laszlo](http://patrikx3.tk)
+
+
+[//]: #@corifeus-footer:end

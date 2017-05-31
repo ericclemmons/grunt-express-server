@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/grunt-express-server.iml" filepath="$PROJECT_DIR$/.idea/grunt-express-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/grunt-p3x-express.iml" filepath="$PROJECT_DIR$/.idea/grunt-p3x-express.iml" />
     </modules>
   </component>
 </project>
