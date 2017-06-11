@@ -6,7 +6,7 @@
         "code": "Next"
     },
     "description": "Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde",
-    "version": "1.0.12-11",
+    "version": "1.0.17-15",
     "homepage": "https://pages.corifeus.tk/grunt-p3x-express",
     "author": {
         "name": "Eric Clemmons",
@@ -34,7 +34,7 @@
         "test": "./node_modules/.bin/grunt"
     },
     "devDependencies": {
-        "corifeus-builder": "^1.7.649-9",
+        "corifeus-builder": "^1.7.660-16",
         "express": "^4.15.3",
         "grunt": "^1.0.1",
         "grunt-cli": "^1.2.0",
