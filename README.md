@@ -25,7 +25,7 @@ Besides, when I can support, please note, I cannot support old versions, only th
    
 ### Built on Node 
 ``` 
-v8.1.0
+v8.1.2
 ```   
    
 The ```async``` and ```await``` keywords are required.
@@ -239,7 +239,7 @@ https://github.com/ericclemmons/grunt-express-server
 [//]: #@corifeus-footer
 
 ---
-[**GRUNT-P3X-EXPRESS**](https://pages.corifeus.tk/grunt-p3x-express) Build v1.0.17-15
+[**GRUNT-P3X-EXPRESS**](https://pages.corifeus.tk/grunt-p3x-express) Build v1.0.19-18
 
 [Corifeus](http://www.corifeus.tk) by [Patrik Laszlo](http://patrikx3.tk)
 
