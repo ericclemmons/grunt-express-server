@@ -34,7 +34,7 @@
         "test": "./node_modules/.bin/grunt"
     },
     "devDependencies": {
-        "corifeus-builder": "^1.7.660-16",
+        "corifeus-builder": "^1.7.661-19",
         "express": "^4.15.3",
         "grunt": "^1.0.1",
         "grunt-cli": "^1.2.0",
