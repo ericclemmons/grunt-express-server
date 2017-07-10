@@ -7,7 +7,7 @@
 ---
 
  
-# Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde
+# Grunt Express Server
 
 This is an open source project. Just code.
 
@@ -230,8 +230,8 @@ https://github.com/ericclemmons/grunt-express-server
 
 ---
 
-[**GRUNT-P3X-EXPRESS**](https://pages.corifeus.tk/grunt-p3x-express) Build v1.0.27-27
+[**GRUNT-P3X-EXPRESS**](https://pages.corifeus.com/grunt-p3x-express) Build v1.0.42-37
 
-[Corifeus](http://www.corifeus.tk) by [Patrik Laszlo](http://patrikx3.tk)
+[Corifeus](http://www.corifeus.com) by [Patrik Laszlo](http://patrikx3.com)
 
 [//]: #@corifeus-footer:end
