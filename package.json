@@ -6,7 +6,7 @@
         "code": "Next"
     },
     "description": "Grunt Express Server",
-    "version": "1.0.50-48",
+    "version": "1.0.54-50",
     "homepage": "https://pages.corifeus.com/grunt-p3x-express",
     "author": {
         "name": "Eric Clemmons",
@@ -34,7 +34,7 @@
         "test": "./node_modules/.bin/grunt"
     },
     "devDependencies": {
-        "corifeus-builder": "^1.7.710-52",
+        "corifeus-builder": "^1.7.715-54",
         "express": "^4.15.3",
         "grunt": "^1.0.1",
         "grunt-cli": "^1.2.0",
