@@ -8,6 +8,8 @@ filter:
     - docs/*
 
 build:
+	cache:
+		disabled: true
 
   dependencies:
     before:
