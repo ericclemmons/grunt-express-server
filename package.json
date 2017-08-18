@@ -3,10 +3,11 @@
     "corifeus": {
         "publish": true,
         "type": "p3x",
-        "code": "Next"
+        "code": "Next",
+        "nodejs": "v8.4.0"
     },
     "description": "Grunt Express Server",
-    "version": "1.0.71-65",
+    "version": "1.0.84-77",
     "homepage": "https://pages.corifeus.com/grunt-p3x-express",
     "author": {
         "name": "Eric Clemmons",
@@ -34,7 +35,7 @@
         "test": "./node_modules/.bin/grunt"
     },
     "devDependencies": {
-        "corifeus-builder": "^1.7.735-81",
+        "corifeus-builder": "^1.7.752-96",
         "express": "^4.15.4",
         "grunt": "^1.0.1",
         "grunt-cli": "^1.2.0",
