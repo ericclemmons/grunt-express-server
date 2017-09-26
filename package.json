@@ -7,7 +7,7 @@
         "nodejs": "v8.5.0"
     },
     "description": "Grunt Express Server",
-    "version": "1.0.152-119",
+    "version": "1.0.168-124",
     "homepage": "https://pages.corifeus.com/grunt-p3x-express",
     "author": {
         "name": "Eric Clemmons",
@@ -35,7 +35,7 @@
         "test": "./node_modules/.bin/grunt"
     },
     "devDependencies": {
-        "corifeus-builder": "^1.7.829-142",
+        "corifeus-builder": "^1.7.845-148",
         "express": "^4.15.5",
         "grunt": "^1.0.1",
         "grunt-cli": "^1.2.0",
