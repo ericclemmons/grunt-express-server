@@ -1,6 +1,6 @@
 [//]: #@corifeus-header
 
-  [![Build Status](https://travis-ci.org/patrikx3/.svg?branch=master)](https://travis-ci.org/patrikx3/)  [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/patrikx3//badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/patrikx3//?branch=master)  [![Code Coverage](https://scrutinizer-ci.com/g/patrikx3//badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/patrikx3//?branch=master) 
+  [![Build Status](https://travis-ci.org/patrikx3/grunt-p3x-express.svg?branch=master)](https://travis-ci.org/patrikx3/grunt-p3x-express)  [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/patrikx3/grunt-p3x-express/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/patrikx3/grunt-p3x-express/?branch=master)  [![Code Coverage](https://scrutinizer-ci.com/g/patrikx3/grunt-p3x-express/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/patrikx3/grunt-p3x-express/?branch=master) 
 
   
 [![NPM](https://nodei.co/npm/grunt-p3x-express.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/grunt-p3x-express/)
