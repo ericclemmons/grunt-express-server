@@ -11,6 +11,11 @@ build:
   cache:
     disabled: true
 
+  environment:
+    google_chrome:
+      use_latest: true
+
+
   dependencies:
     before:
       - export LATEST=$(nvm ls-remote | tail -1)
