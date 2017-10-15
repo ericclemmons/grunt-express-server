@@ -18,7 +18,7 @@ This is an open source project. Just code.
    
 ### Built on Node 
 ``` 
-v8.6.0
+v8.7.0
 ```   
    
 The ```async``` and ```await``` keywords are required.
@@ -230,7 +230,7 @@ https://github.com/ericclemmons/grunt-express-server
 
 ---
 
-[**GRUNT-P3X-EXPRESS**](https://pages.corifeus.com/grunt-p3x-express) Build v1.0.195-142 
+[**GRUNT-P3X-EXPRESS**](https://pages.corifeus.com/grunt-p3x-express) Build v1.0.198-144 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) 
  
