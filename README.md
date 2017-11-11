@@ -32,7 +32,9 @@ https://nodejs.org/en/download/package-manager/
 [//]: #@corifeus-header:end
 
 
-Simple grunt task for running an Express server that works great with LiveReload + Watch/Regarde
+Simple grunt task for running an Express server that works great with LiveReload + Watch/Regarde.
+
+It works with the latest Node and some additional options.
 
 ## Getting Started
 
