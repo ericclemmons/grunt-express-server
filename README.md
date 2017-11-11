@@ -7,7 +7,7 @@
 ---
 
  
-# Grunt Express Server v1.0.256-173  
+# Grunt Express Server v1.0.258-175  
 
 This is an open source project. Just code.
 
@@ -70,7 +70,10 @@ grunt.initConfig({
     prod: {
       options: {
         script: 'path/to/prod/server.js',
-        node_env: 'production'
+        node_env: 'production',
+        env: {
+            'NODE_MODE': 'cluster'
+        }
       }
     },
     test: {
@@ -111,6 +114,9 @@ or within each individual server task.
 
       // Override node env's NODE_ENV
       node_env: undefined,
+
+      // Merge the process environment of this option
+      env: {},
 
       // Enable Node's --harmony flag
       harmony: false,
@@ -205,7 +211,10 @@ watch: {
     files:  [ '**/*.js' ],
     tasks:  [ 'express:dev' ],
     options: {
-      spawn: false
+      spawn: false,
+      env: {
+          'NODE_MODE': 'cluster'
+      }
     }
   },
   less: {
@@ -230,7 +239,7 @@ https://github.com/ericclemmons/grunt-express-server
 
 ---
 
-[**GRUNT-P3X-EXPRESS**](https://pages.corifeus.com/grunt-p3x-express) Build v1.0.256-173 
+[**GRUNT-P3X-EXPRESS**](https://pages.corifeus.com/grunt-p3x-express) Build v1.0.258-175 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) [![Donate for Corifeus / P3X](https://img.shields.io/badge/Donate-Corifeus-003087.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=LFRV89WPRMMVE&lc=HU&item_name=Patrik%20Laszlo&item_number=patrikx3&currency_code=HUF&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted) 
 

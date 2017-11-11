@@ -60,6 +60,10 @@ module.exports = function(grunt, target) {
       if (options.node_env) {
         process.env.NODE_ENV = options.node_env;
       }
+      if (options.env) {
+        const _ = require('lodash');
+        process.env = _.merge(process.env, options.env)
+      }
 
       if (options.cmd === 'coffee') {
         grunt.log.writeln('You are using cmd: coffee'.red);
