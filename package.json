@@ -1,43 +1,54 @@
 {
-  "name": "grunt-express-server",
-  "description": "Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde",
-  "version": "0.5.3",
-  "homepage": "https://github.com/ericclemmons/grunt-express-server",
-  "author": {
-    "name": "Eric Clemmons",
-    "email": "eric@smarterspam.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/ericclemmons/grunt-express-server.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ericclemmons/grunt-express-server/issues"
-  },
-  "license": "MIT",
-  "main": "Gruntfile.js",
-  "engines": {
-    "node": ">= 0.10.0"
-  },
-  "scripts": {
-    "test": "./node_modules/.bin/grunt"
-  },
-  "devDependencies": {
-    "coffee-script": "^1.7.1",
-    "express": "^4.0.0",
-    "grunt": "^1.0.1",
-    "grunt-cli": "^1.2.0",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-nodeunit": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0"
-  },
-  "peerDependencies": {
-    "grunt": ">=0.4.0"
-  },
-  "keywords": [
-    "gruntplugin",
-    "express",
-    "server"
-  ]
+    "name": "grunt-p3x-express",
+    "corifeus": {
+        "publish": true,
+        "type": "p3x",
+        "code": "Next",
+        "nodejs": "v9.5.0"
+    },
+    "description": "Grunt Express Server updated with additional options",
+    "version": "1.1.155-231",
+    "homepage": "https://pages.corifeus.com/grunt-p3x-express",
+    "author": {
+        "name": "Eric Clemmons",
+        "email": "eric@smarterspam.com"
+    },
+    "contributors": [
+        {
+            "name": "Patrik Laszlo",
+            "email": "alabard@gmail.com"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/patrikx3/grunt-express.git"
+    },
+    "bugs": {
+        "url": "https://github.com/patrikx3/grunt-express/issues"
+    },
+    "license": "MIT",
+    "main": "Gruntfile.js",
+    "engines": {
+        "node": ">=8.9.0"
+    },
+    "scripts": {
+        "test": "./node_modules/.bin/grunt"
+    },
+    "devDependencies": {
+        "corifeus-builder": "^1.7.1201-300",
+        "express": "^4.16.2",
+        "grunt": "^1.0.2",
+        "grunt-cli": "^1.2.0",
+        "grunt-contrib-clean": "^1.1.0",
+        "grunt-contrib-jshint": "^1.1.0",
+        "grunt-contrib-nodeunit": "^1.0.0",
+        "grunt-contrib-watch": "^1.0.0",
+        "lodash": "^4.17.5"
+    },
+    "keywords": [
+        "gruntplugin",
+        "express",
+        "server"
+    ],
+    "dependencies": {}
 }

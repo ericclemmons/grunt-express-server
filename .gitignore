@@ -3,3 +3,17 @@ npm-debug.log
 tmp
 *.sublime-project
 *.sublime-workspace
+/build
+/dist
+/node_modules
+/*.log
+/*.iws
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/profiles_settings.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/inspectionProfiles/profiles_settings.xml
+
+node_modules/.yarn-integrity
+package-lock.json
+
